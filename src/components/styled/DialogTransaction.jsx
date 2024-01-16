@@ -73,7 +73,7 @@ export default function DialogTransaction({
         <Typography
           as="h1"
           sx={{
-            color: '#9E5635',
+            color: '#2b2421',
             fontSize: '2em',
             lineHeight: '1em',
             marginBottom: '0.5em',
@@ -88,7 +88,7 @@ export default function DialogTransaction({
           sx={{
             padding: '1em',
             background: '#ede8e6',
-            border: 'solid 4px #9E5635',
+            border: 'solid 4px #5D2410',
             borderRadius: '10px',
             color: 'black',
           }}
@@ -96,7 +96,8 @@ export default function DialogTransaction({
           <Typography
             as="h1"
             sx={{
-              color: '#9E5635',
+              color: '#5D2410',
+              fontWeight:'bold',
               fontSize: '2em',
               lineHeight: '1em',
               marginBottom: '0.5em',
@@ -174,16 +175,21 @@ export default function DialogTransaction({
               variant="text"
               autoFocus
               sx={{
-                padding: '0.5em 0em 0.25em 0em',
-                width: '6.5em',
-                marginRight: '2em',
-                backgroundColor: '#9E5635',
-                borderRadius: '0',
-                color: '#ede8e6',
+                backgroundColor: '#5D2410',
+                borderRadius:'1em',
+                border:'solid 1px #ede8e6',
+                color:'#ede8e6',
                 display: 'inline-block',
+                fontSize: '0.75em',
+                width: '8em',
+                padding: '0.4em 0.25em',
+                lineHeight: '1.2em',
+                margin: 0,
+                marginRight:'1em',
+                marginTop:'0.66em',
                 '&:hover': {
-                  backgroundColor: '#5D2410',
-                },
+                  backgroundColor: '#080830',
+                }
               }}
             >
               <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
@@ -198,15 +204,21 @@ export default function DialogTransaction({
             variant="text"
             autoFocus
             sx={{
-              padding: '0.5em 0em 0.25em 0em',
-              width: '6.5em',
-              backgroundColor: '#9E5635',
-              borderRadius: '0',
-              color: '#ede8e6',
+              backgroundColor: '#5D2410',
+              borderRadius:'1em',
+              border:'solid 1px #ede8e6',
+              color:'#ede8e6',
               display: 'inline-block',
+              fontSize: '0.75em',
+              width: '8em',
+              padding: '0.4em 0.25em',
+              lineHeight: '1.2em',
+              margin: 0,
+              marginRight:'1em',
+              marginTop:'0.66em',
               '&:hover': {
-                backgroundColor: '#5D2410',
-              },
+                backgroundColor: '#080830',
+              }
             }}
           >
             <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>

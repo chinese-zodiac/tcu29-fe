@@ -116,6 +116,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
         ? BigNumber.from(tokenBalDataTcu29?.value ?? 0)
         : parseEther('0');
 
+
     const handleClickOpen = () => {
       setOpen(true);
     };
@@ -157,7 +158,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                 margin: 0,
                 marginRight:'1em',
                 '&:hover': {
-                  backgroundColor: '#5D2410',
+                  backgroundColor: '#080830',
                 }
               }}
             >
@@ -180,7 +181,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                 lineHeight: '1.2em',
                 margin: 0,
                 '&:hover': {
-                  backgroundColor: '#5D2410',
+                  backgroundColor: '#080830',
                 }
               }}
             >
@@ -254,6 +255,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                   position: 'relative',
                   top: '-0.15em',
                   display: 'inline-block',
+                  paddingTop:'0.3em',
                   '&:hover': {
                     backgroundColor: '#080830',
                   },
@@ -357,7 +359,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                   marginRight:'1em',
                   marginTop:'0.66em',
                   '&:hover': {
-                    backgroundColor: '#5D2410',
+                    backgroundColor: '#080830',
                   }
                 }}
             >
@@ -367,7 +369,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
             </Button>
             {inputWad.gt(isCzusd ? allowanceCzusd : allowanceUsdt) ? (
               <DialogTransaction
-                title={'APPROVE ' + isCzusd ? "CZUSD" : "USDT"}
+                title={'APPROVE ' + (isCzusd ? "CZUSD" : "USDT")}
                 btn={
                   <Button
                     onClick={() => {
@@ -388,7 +390,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                         marginLeft:'1em',
                         marginTop:'0.66em',
                         '&:hover': {
-                          backgroundColor: '#5D2410',
+                          backgroundColor: '#080830',
                         }
                       }}
                   >
@@ -454,7 +456,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                         marginLeft:'1em',
                         marginTop:'0.66em',
                         '&:hover': {
-                          backgroundColor: '#5D2410',
+                          backgroundColor: '#080830',
                         }
                       }}
                   >
@@ -472,9 +474,9 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                   <br />
                   AMOUNTS:
                   <br />
-                  - {bnToCompact(inputWad, 18, 5)} {isCzusd ? "CZUSD" : "USDT"}
+                  -{bnToCompact(inputWad, 18, 5)} {isCzusd ? "CZUSD" : "USDT"}
                   <br/>
-                  + {inputWad.mul(1000).div(priceTcu29)}
+                  +{bnToCompact(inputWad.mul(1000).div(priceTcu29),18,5)} TCU29
                 </Typography>
               </DialogTransaction>
             )}

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useAccount, useContractRead } from 'wagmi';
+import { useAccount, useBalance, useContractRead } from 'wagmi';
 import ConnectWallet from '../components/elements/ConnectWallet';
 import { Typography,TextField, Box } from '@mui/material';
 import FooterArea from '../components/layouts/FooterArea';
@@ -8,9 +8,85 @@ import { LINK_OPERATOR_INFO } from '../constants/links';
 import Grid2 from '@mui/material/Unstable_Grid2';
 import DialogBuyTcu29 from '../components/elements/DialogBuyTcu29';
 import ButtonPrimary from "../components/styled/ButtonPrimary"
+import { BigNumber, ethers } from 'ethers';
+import { ADDRESS_TCU29, ADDRESS_TCU29SALE } from '../constants/addresses';
+import { parseEther } from 'viem';
+import { bnToCompact } from '../utils/bnToFixed';
+import Tcu29SaleAbi from '../abi/Tcu29Sale.json';
+import DialogPause from '../components/elements/DialogPause';
+import DialogUnpause from '../components/elements/DialogUnpause';
 
 export default function Home() {
     const { address, isConnecting, isDisconnected } = useAccount();
+
+    const priceTcu29 = BigNumber.from("8436");
+  
+    const {
+      data: tokenBalDataTcu29,
+      isError: tokenBalIsErrorTcu29,
+      isLoading: tokenBalIsLoadingTcu29,
+  } = useBalance({
+      address: address,
+      token: ADDRESS_TCU29,
+      watch: true,
+      enabled: !!address,
+  });
+  
+  const tokenBalTcu29 =
+      !tokenBalIsLoadingTcu29 && !tokenBalIsErrorTcu29 && !!tokenBalDataTcu29?.value
+      ? BigNumber.from(tokenBalDataTcu29?.value ?? 0)
+      : BigNumber.from(parseEther('0'));
+  
+      const {
+        data: tokenBalDataTcu29Sale,
+        isError: tokenBalIsErrorTcu29Sale,
+        isLoading: tokenBalIsLoadingTcu29Sale,
+    } = useBalance({
+        address: ADDRESS_TCU29SALE,
+        token: ADDRESS_TCU29,
+        watch: true,
+        enabled: !!address,
+    });
+    
+    const tokenBalTcu29Sale =
+        !tokenBalIsLoadingTcu29Sale && !tokenBalIsErrorTcu29Sale && !!tokenBalDataTcu29Sale?.value
+        ? BigNumber.from(tokenBalDataTcu29Sale?.value ?? 0)
+        : BigNumber.from(parseEther('0'));
+
+    const {
+      data: hasRoleDataManager,
+      isError: hasRoleIsErrorManager,
+      isLoading: hasRoleIsLoadingManager
+    } = useContractRead({
+      address: ADDRESS_TCU29SALE,
+      abi: Tcu29SaleAbi,
+      functionName: 'hasRole',
+      watch: true,
+      args: [ethers.utils.id("MANAGER_ROLE"), address],
+      enabled: !!address,
+  });
+
+  const hasRoleManager =
+      !hasRoleIsLoadingManager && !hasRoleIsErrorManager && !!hasRoleDataManager
+      ? true
+      : false;
+
+      const {
+        data: isPausedData,
+        isError: isPausedIsError,
+        isLoading: isPausedIsLoading
+      } = useContractRead({
+        address: ADDRESS_TCU29SALE,
+        abi: Tcu29SaleAbi,
+        functionName: 'paused',
+        watch: true,
+        enabled: !!address,
+      });
+  
+    const isPaused =
+        !isPausedIsLoading && !isPausedIsError && !!isPausedData
+        ? true
+        : false;
 
     return (
         <>
@@ -35,13 +111,29 @@ export default function Home() {
                 Purchasable:
             </Grid2>
             <Grid2 xs={1} sx={{textAlign:'left'}}>
-                200.00M ($1.600B)
+            {bnToCompact(
+                  tokenBalTcu29Sale,
+                  18,
+                  5
+                )} (${bnToCompact(
+                  tokenBalTcu29Sale.mul(1000).div(priceTcu29),
+                  18,
+                  5
+                )})
             </Grid2>
             <Grid2  xs={1} sx={{textAlign:'right'}}>
                 Your TCu29:
             </Grid2>
             <Grid2 xs={1} sx={{textAlign:'left'}}>
-                10.00M ($8.000M)
+            {bnToCompact(
+                  tokenBalTcu29,
+                  18,
+                  5
+                )} (${bnToCompact(
+                  tokenBalTcu29.mul(1000).div(priceTcu29),
+                  18,
+                  5
+                )})
             </Grid2>
         </Grid2>
         <DialogBuyTcu29
@@ -60,7 +152,7 @@ export default function Home() {
                       margin: 0,
                       marginTop:'0.66em',
                       '&:hover': {
-                        backgroundColor: '#5D2410',
+                        backgroundColor: '#080830',
                       }
                     }}
                   >
@@ -76,12 +168,31 @@ export default function Home() {
                         position: 'relative',
                         top: '0.15em',
                         display: 'inline-block',
+                        '&:hover': {
+                          backgroundColor: '#080830',
+                        }
                       }}
                     />
                     BUY TCU29
                   </ButtonPrimary>
                 }
               />
+        {hasRoleManager && (<>
+        <br/><br/>
+        <hr/>
+        <Typography as="h2" sx={{fontSize:'2em'}}>
+            Administrative Functions
+        </Typography>
+        <Typography>
+          To make TCu29 available for sale, send TCu29 tokens to: <br/>
+          {ADDRESS_TCU29SALE}
+        </Typography>
+        <br/>
+        <Typography>
+          Pause Status: {isPaused ? "PAUSED" : "NOT PAUSED"}
+        </Typography>
+        {isPaused ? (<DialogUnpause />) : (<DialogPause />)}
+        </>)}
         <br/>
         <FooterArea />
         </>

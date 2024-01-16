@@ -1,4 +1,6 @@
 export const LINK_TELEGRAM = "https://t.me/tempestascoins";
+export const LINK_DISCORD = "https://discord.gg/cfTyYeEB";
+export const LINK_TWITTER = "https://x.com/tempestascoins";
 
 export const LINK_CZCASH = "https://cz.cash";
 

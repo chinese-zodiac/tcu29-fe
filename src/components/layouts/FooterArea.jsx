@@ -1,8 +1,9 @@
 import { Box, Container, Stack, useTheme } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2';
 import React from 'react';
-import { LINK_PRIVACY_POLICY, LINK_TERMS_OF_USE } from '../../constants/links';
+import { LINK_DISCORD, LINK_PRIVACY_POLICY, LINK_TELEGRAM, LINK_TERMS_OF_USE, LINK_TWITTER } from '../../constants/links';
 import MenuLinkSocialIcon from '../styled/MenuLinkSocialIcon';
+import { ADDRESS_CZUSD, ADDRESS_TCU29, ADDRESS_TCU29SALE, ADDRESS_USDT } from '../../constants/addresses';
 
 export default function FooterArea({ sx }) {
   const theme = useTheme();
@@ -21,7 +22,15 @@ export default function FooterArea({ sx }) {
           ...sx,
         }}
       >
-        <Container>
+      <Stack alignItems="center" justifyContent='center'>
+        Token Contract Addresses (BSC)<br/>
+        TCU29: {ADDRESS_TCU29}<br/>
+        USDT: {ADDRESS_USDT}<br/>
+        CZUSD: {ADDRESS_CZUSD}<br/><br/>
+        Dapp Contract Address (BSC)<br/>
+        TCU29 Sale: {ADDRESS_TCU29SALE}<br/><br/>
+      </Stack>
+      <Container>
           <Grid2
             container
             justifyContent="center"
@@ -45,9 +54,23 @@ export default function FooterArea({ sx }) {
                 justifyContent="flex-end"
               >
                 <MenuLinkSocialIcon
-                  href="https://t.me/rafalovichcoins"
+                  href={LINK_TWITTER}
+                  src="./images/icons/Twitter-Blue-Light.svg"
+                  alt="Discord"
+                  width={27}
+                  height={23}
+                />
+                <MenuLinkSocialIcon
+                  href={LINK_TELEGRAM}
                   src="./images/icons/TG-Blue-Light.svg"
                   alt="Telegram"
+                  width={27}
+                  height={23}
+                />
+                <MenuLinkSocialIcon
+                  href={LINK_DISCORD}
+                  src="./images/icons/Discord-Blue-Light.svg"
+                  alt="Discord"
                   width={27}
                   height={23}
                 />

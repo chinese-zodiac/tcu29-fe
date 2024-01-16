@@ -39,7 +39,7 @@ export default function ConnectWallet() {
                     backgroundColor: '#9E5635',
                     width: '8em',
                     '&:hover': {
-                      backgroundColor: '#5D2410',
+                      backgroundColor: '#080830',
                     },
                   }}
                 >
@@ -72,7 +72,7 @@ export default function ConnectWallet() {
                     fontSize: 28,
                     backgroundColor: '#9E5635',
                     '&:hover': {
-                      backgroundColor: '#5D2410',
+                      backgroundColor: '#080830',
                     },
                   }}
                 >
