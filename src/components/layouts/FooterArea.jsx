@@ -1,9 +1,20 @@
 import { Box, Container, Stack, useTheme } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2';
 import React from 'react';
-import { LINK_DISCORD, LINK_PRIVACY_POLICY, LINK_TELEGRAM, LINK_TERMS_OF_USE, LINK_TWITTER } from '../../constants/links';
+import {
+  LINK_DISCORD,
+  LINK_PRIVACY_POLICY,
+  LINK_TELEGRAM,
+  LINK_TERMS_OF_USE,
+  LINK_TWITTER,
+} from '../../constants/links';
 import MenuLinkSocialIcon from '../styled/MenuLinkSocialIcon';
-import { ADDRESS_CZUSD, ADDRESS_TCU29, ADDRESS_TCU29SALE, ADDRESS_USDT } from '../../constants/addresses';
+import {
+  ADDRESS_CZUSD,
+  ADDRESS_TCU29,
+  ADDRESS_TCU29SALE,
+  ADDRESS_USDT,
+} from '../../constants/addresses';
 
 export default function FooterArea({ sx }) {
   const theme = useTheme();
@@ -13,24 +24,32 @@ export default function FooterArea({ sx }) {
     <>
       <Box
         sx={{
-          backgroundColor: "#201e1d",
+          backgroundColor: '#201e1d',
           color: '#ede8e6',
           padding: '100px 0px',
           margin: '0',
-          marginTop:'5em',
+          marginTop: '5em',
           width: '100%',
           ...sx,
         }}
       >
-      <Stack alignItems="center" justifyContent='center'>
-        Token Contract Addresses (BSC)<br/>
-        TCU29: {ADDRESS_TCU29}<br/>
-        USDT: {ADDRESS_USDT}<br/>
-        CZUSD: {ADDRESS_CZUSD}<br/><br/>
-        Dapp Contract Address (BSC)<br/>
-        TCU29 Sale: {ADDRESS_TCU29SALE}<br/><br/>
-      </Stack>
-      <Container>
+        <Stack alignItems="center" justifyContent="center">
+          Token Contract Addresses (BSC)
+          <br />
+          TCU29: {ADDRESS_TCU29}
+          <br />
+          USDT: {ADDRESS_USDT}
+          <br />
+          CZUSD: {ADDRESS_CZUSD}
+          <br />
+          <br />
+          Dapp Contract Address (BSC)
+          <br />
+          TCU29 Sale: {ADDRESS_TCU29SALE}
+          <br />
+          <br />
+        </Stack>
+        <Container>
           <Grid2
             container
             justifyContent="center"

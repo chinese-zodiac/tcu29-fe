@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-export default function useOutsideAlerter(ref,cb) {
+export default function useOutsideAlerter(ref, cb) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -14,10 +14,10 @@ export default function useOutsideAlerter(ref,cb) {
       }
     }
     // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
 }

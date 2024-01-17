@@ -30,7 +30,7 @@ export default function ConnectWallet() {
                     textTransform: 'unset',
                     color: '#ede8e6',
                     fontSize: 28,
-                    fontWeight:'bold',
+                    fontWeight: 'bold',
                     WebkitTextStroke: '1px #2b2421',
                     paddingLeft: '1em',
                     paddingRight: '1em',

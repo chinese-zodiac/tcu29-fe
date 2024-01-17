@@ -12,22 +12,22 @@ export default function DialogDistribute() {
         functionName="managerDistributeCzusd"
         title="DISTRIBUTE CZUSD"
         btn={
-            <Button
+          <Button
             sx={{
               backgroundColor: '#5D2410',
-              borderRadius:'1em',
-              border:'solid 1px #ede8e6',
-              color:'#ede8e6',
+              borderRadius: '1em',
+              border: 'solid 1px #ede8e6',
+              color: '#ede8e6',
               display: 'inline-block',
               fontSize: '1em',
               width: '8em',
               padding: '0.4em 0.25em',
               lineHeight: '1.2em',
               margin: 0,
-              marginRight:'1em',
+              marginRight: '1em',
               '&:hover': {
                 backgroundColor: '#080830',
-              }
+              },
             }}
           >
             DISTRIBUTE
@@ -35,7 +35,8 @@ export default function DialogDistribute() {
         }
       >
         <Typography sx={{ fontSize: '1.25em', lineHeight: '1.25em' }}>
-          Distributes the collected CZUSD from selling TCu29 to the registered recipients, based on their weight. 
+          Distributes the collected CZUSD from selling TCu29 to the registered
+          recipients, based on their weight.
         </Typography>
       </DialogTransaction>
     </>

@@ -16,11 +16,11 @@ export default function MenuLinkSocialIcon({
       rel="noreferrer"
       css={{
         paddingTop: '8px',
-        paddingBottom:'1px',
+        paddingBottom: '1px',
         '&:hover': {
           borderBottom: 'solid 1px #EF915B',
           paddingTop: '8px',
-          paddingBottom:'0px'
+          paddingBottom: '0px',
         },
         ...css,
       }}

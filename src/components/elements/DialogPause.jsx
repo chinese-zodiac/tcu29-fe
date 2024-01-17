@@ -12,22 +12,22 @@ export default function DialogPause() {
         functionName="managerPause"
         title="PAUSE TCU29 SALE DAPP"
         btn={
-            <Button
+          <Button
             sx={{
               backgroundColor: '#5D2410',
-              borderRadius:'1em',
-              border:'solid 1px #ede8e6',
-              color:'#ede8e6',
+              borderRadius: '1em',
+              border: 'solid 1px #ede8e6',
+              color: '#ede8e6',
               display: 'inline-block',
               fontSize: '1em',
               width: '8em',
               padding: '0.4em 0.25em',
               lineHeight: '1.2em',
               margin: 0,
-              marginRight:'1em',
+              marginRight: '1em',
               '&:hover': {
                 backgroundColor: '#080830',
-              }
+              },
             }}
           >
             PAUSE

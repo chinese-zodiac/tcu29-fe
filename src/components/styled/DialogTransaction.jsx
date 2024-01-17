@@ -97,7 +97,7 @@ export default function DialogTransaction({
             as="h1"
             sx={{
               color: '#5D2410',
-              fontWeight:'bold',
+              fontWeight: 'bold',
               fontSize: '2em',
               lineHeight: '1em',
               marginBottom: '0.5em',
@@ -176,20 +176,20 @@ export default function DialogTransaction({
               autoFocus
               sx={{
                 backgroundColor: '#5D2410',
-                borderRadius:'1em',
-                border:'solid 1px #ede8e6',
-                color:'#ede8e6',
+                borderRadius: '1em',
+                border: 'solid 1px #ede8e6',
+                color: '#ede8e6',
                 display: 'inline-block',
                 fontSize: '0.75em',
                 width: '8em',
                 padding: '0.4em 0.25em',
                 lineHeight: '1.2em',
                 margin: 0,
-                marginRight:'1em',
-                marginTop:'0.66em',
+                marginRight: '1em',
+                marginTop: '0.66em',
                 '&:hover': {
                   backgroundColor: '#080830',
-                }
+                },
               }}
             >
               <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
@@ -205,20 +205,20 @@ export default function DialogTransaction({
             autoFocus
             sx={{
               backgroundColor: '#5D2410',
-              borderRadius:'1em',
-              border:'solid 1px #ede8e6',
-              color:'#ede8e6',
+              borderRadius: '1em',
+              border: 'solid 1px #ede8e6',
+              color: '#ede8e6',
               display: 'inline-block',
               fontSize: '0.75em',
               width: '8em',
               padding: '0.4em 0.25em',
               lineHeight: '1.2em',
               margin: 0,
-              marginRight:'1em',
-              marginTop:'0.66em',
+              marginRight: '1em',
+              marginTop: '0.66em',
               '&:hover': {
                 backgroundColor: '#080830',
-              }
+              },
             }}
           >
             <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>

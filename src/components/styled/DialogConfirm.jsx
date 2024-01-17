@@ -33,19 +33,19 @@ export default function DialogConfirm({
             autoFocus
             sx={{
               backgroundColor: '#5D2410',
-              borderRadius:'1em',
-              border:'solid 1px #ede8e6',
+              borderRadius: '1em',
+              border: 'solid 1px #ede8e6',
               display: 'inline-block',
               fontSize: '1em',
               width: '6em',
               padding: '0.4em 0.25em',
               lineHeight: '1.2em',
-              color:'#ede8e6',
+              color: '#ede8e6',
               margin: 0,
-              marginRight:'2em',
+              marginRight: '2em',
               '&:hover': {
                 backgroundColor: '#5D2410',
-              }
+              },
             }}
           >
             <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
@@ -61,18 +61,18 @@ export default function DialogConfirm({
             autoFocus
             sx={{
               backgroundColor: '#5D2410',
-              borderRadius:'1em',
-              border:'solid 1px #ede8e6',
+              borderRadius: '1em',
+              border: 'solid 1px #ede8e6',
               display: 'inline-block',
               fontSize: '1em',
               width: '6em',
               padding: '0.4em 0.25em',
               lineHeight: '1.2em',
-              color:'#ede8e6',
+              color: '#ede8e6',
               margin: 0,
               '&:hover': {
                 backgroundColor: '#5D2410',
-              }
+              },
             }}
           >
             <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>

@@ -1,6 +1,6 @@
-import { getAddress, isAddress } from "@ethersproject/address";
-import axios from "axios";
-import { LINK_COINGECKO_TOKENS } from "../../constants/links";
+import { getAddress, isAddress } from '@ethersproject/address';
+import axios from 'axios';
+import { LINK_COINGECKO_TOKENS } from '../../constants/links';
 
 const getCoingeckoTokens = async (listName) => {
   const { data } = await axios.get(LINK_COINGECKO_TOKENS);
@@ -27,7 +27,10 @@ const fetchCoingeckoList = async () => {
 
     return sanitizedTokens;
   } catch (error) {
-    console.error(`Error when fetching Coingecko list, error: ${error.message}`, error);
+    console.error(
+      `Error when fetching Coingecko list, error: ${error.message}`,
+      error
+    );
   }
 };
 

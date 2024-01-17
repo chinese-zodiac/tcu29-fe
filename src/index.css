@@ -20,9 +20,9 @@ Redwood
   -webkit-text-size-adjust: 100%;
   --color-background: #2b2421;
   --color-background2: #201e1d;
-  --color-accent: #EF915B;
-  --color-notice: #5D2410;
-  --color-brand: #9E5635;
+  --color-accent: #ef915b;
+  --color-notice: #5d2410;
+  --color-brand: #9e5635;
   --color-foreground: #ede8e6;
   --color-secondary: #080830;
 }
@@ -33,7 +33,7 @@ html {
 
 body {
   margin: 0;
-  padding-top:3em;
+  padding-top: 3em;
   min-height: 100vh;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
@@ -45,6 +45,7 @@ body {
   font-size: '16px';
 }
 
-h1,p {
-  margin:0
+h1,
+p {
+  margin: 0;
 }
