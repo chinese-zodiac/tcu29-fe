@@ -24,13 +24,30 @@ import ButtonPrimary from '../styled/ButtonPrimary';
     sx,
   }) {
     const { address, isConnecting, isDisconnected } = useAccount();
-
-    const priceTcu29 = BigNumber.from("8436");
   
     const [open, setOpen] = useState(false);
     const [inputWad, setInputWad] = useState(parseEther('0'));
   
     const [isCzusd, setIsCzusd] = useState(false);
+
+    console.log(isCzusd)
+
+    const {
+      data: dataPrice,
+      isError: isErrorPrice,
+      isLoading: isLoadingPrice,
+    } = useContractRead({
+      address: ADDRESS_TCU29SALE,
+      abi: Tcu29SaleAbi,
+      functionName: 'price',
+      watch: true,
+      enabled: !!address,
+    });
+  
+    const priceTcu29 =
+      !isLoadingPrice && !isErrorPrice && !!dataPrice
+        ? dataPrice
+        : BigNumber.from('1000');
   
     const {
       data: dataAllowanceUsdt,
@@ -286,7 +303,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                 }}
               >
                 {bnToCompact(
-                  inputWad.mul(1000).div(priceTcu29).add(tokenBalTcu29),
+                  inputWad.mul(1000).div(priceTcu29),
                   18,
                   5
                 )}
@@ -299,7 +316,7 @@ import ButtonPrimary from '../styled/ButtonPrimary';
                   textAlign: 'right',
                 }}
               >
-                NEW TCU29 BALANCE{' '}
+                TCU29 TO PURCHASE{' '}
               </Typography>
               <Box
                 as="img"

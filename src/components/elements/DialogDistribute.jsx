@@ -3,14 +3,14 @@ import DialogTransaction from '../styled/DialogTransaction';
 import Tcu29SaleAbi from '../../abi/Tcu29Sale.json';
 import { ADDRESS_TCU29SALE } from '../../constants/addresses';
 
-export default function DialogUnpause() {
+export default function DialogDistribute() {
   return (
     <>
       <DialogTransaction
         address={ADDRESS_TCU29SALE}
         abi={Tcu29SaleAbi}
-        functionName="managerUnpause"
-        title="UNPAUSE TCU29 SALE DAPP"
+        functionName="managerDistributeCzusd"
+        title="DISTRIBUTE CZUSD"
         btn={
             <Button
             sx={{
@@ -30,12 +30,12 @@ export default function DialogUnpause() {
               }
             }}
           >
-            UNPAUSE
+            DISTRIBUTE
           </Button>
         }
       >
         <Typography sx={{ fontSize: '1.25em', lineHeight: '1.25em' }}>
-          Unpauses the TCU29 Sale Dapp, allowing anyone to purchase TCu29 if it is available in the dapp.
+          Distributes the collected CZUSD from selling TCu29 to the registered recipients, based on their weight. 
         </Typography>
       </DialogTransaction>
     </>

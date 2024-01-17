@@ -20,7 +20,7 @@ export default function DialogPause() {
               color:'#ede8e6',
               display: 'inline-block',
               fontSize: '1em',
-              width: '6em',
+              width: '8em',
               padding: '0.4em 0.25em',
               lineHeight: '1.2em',
               margin: 0,

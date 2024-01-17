@@ -15,11 +15,28 @@ import { bnToCompact } from '../utils/bnToFixed';
 import Tcu29SaleAbi from '../abi/Tcu29Sale.json';
 import DialogPause from '../components/elements/DialogPause';
 import DialogUnpause from '../components/elements/DialogUnpause';
+import DialogDistribute from '../components/elements/DialogDistribute';
+import DialogSetPrice from '../components/elements/DialogSetPrice';
 
 export default function Home() {
     const { address, isConnecting, isDisconnected } = useAccount();
 
-    const priceTcu29 = BigNumber.from("8436");
+    const {
+      data: dataPrice,
+      isError: isErrorPrice,
+      isLoading: isLoadingPrice,
+    } = useContractRead({
+      address: ADDRESS_TCU29SALE,
+      abi: Tcu29SaleAbi,
+      functionName: 'price',
+      watch: true,
+      enabled: !!address,
+    });
+  
+    const priceTcu29 =
+      !isLoadingPrice && !isErrorPrice && !!dataPrice
+        ? dataPrice
+        : BigNumber.from('1000');
   
     const {
       data: tokenBalDataTcu29,
@@ -36,6 +53,23 @@ export default function Home() {
       !tokenBalIsLoadingTcu29 && !tokenBalIsErrorTcu29 && !!tokenBalDataTcu29?.value
       ? BigNumber.from(tokenBalDataTcu29?.value ?? 0)
       : BigNumber.from(parseEther('0'));
+  
+      const {
+        data: tokenBalDataCzusdSaleDapp,
+        isError: tokenBalIsErrorCzusdSaleDapp,
+        isLoading: tokenBalIsLoadingCzusdSaleDapp,
+    } = useBalance({
+        address: address,
+        token: ADDRESS_TCU29,
+        watch: true,
+        enabled: !!address,
+    });
+    
+    const tokenBalCzusdSaleDapp =
+        !tokenBalIsLoadingCzusdSaleDapp && !tokenBalIsErrorCzusdSaleDapp && !!tokenBalDataCzusdSaleDapp?.value
+        ? BigNumber.from(tokenBalDataCzusdSaleDapp?.value ?? 0)
+        : BigNumber.from(parseEther('0'));
+    
   
       const {
         data: tokenBalDataTcu29Sale,
@@ -105,7 +139,7 @@ export default function Home() {
                 TCu29 Price:
             </Grid2>
             <Grid2 xs={1} sx={{textAlign:'left'}}>
-                $8.346
+                ${bnToCompact(priceTcu29,3,5)}
             </Grid2>
             <Grid2  xs={1} sx={{textAlign:'right'}}>
                 Purchasable:
@@ -116,7 +150,7 @@ export default function Home() {
                   18,
                   5
                 )} (${bnToCompact(
-                  tokenBalTcu29Sale.mul(1000).div(priceTcu29),
+                  tokenBalTcu29Sale.mul(priceTcu29).div(1000),
                   18,
                   5
                 )})
@@ -130,7 +164,7 @@ export default function Home() {
                   18,
                   5
                 )} (${bnToCompact(
-                  tokenBalTcu29.mul(1000).div(priceTcu29),
+                  tokenBalTcu29.mul(priceTcu29).div(1000),
                   18,
                   5
                 )})
@@ -192,7 +226,38 @@ export default function Home() {
           Pause Status: {isPaused ? "PAUSED" : "NOT PAUSED"}
         </Typography>
         {isPaused ? (<DialogUnpause />) : (<DialogPause />)}
-        </>)}
+        <br/><br/>
+          <Typography>
+            CZUSD to Distribute: {bnToCompact(tokenBalCzusdSaleDapp,18,5)}
+          </Typography>
+          <DialogDistribute />
+          <br/><br/>
+          Current TCu29 Price: ${bnToCompact(priceTcu29,3,5)}<br/>
+          <DialogSetPrice
+                btn={
+                  <ButtonPrimary
+                  sx={{
+                    backgroundColor: '#5D2410',
+                    borderRadius:'1em',
+                    border:'solid 1px #ede8e6',
+                    color:'#ede8e6',
+                    display: 'inline-block',
+                    fontSize: '1em',
+                    width: '8em',
+                    padding: '0.4em 0.25em',
+                    lineHeight: '1.2em',
+                    margin: 0,
+                    marginRight:'1em',
+                    '&:hover': {
+                      backgroundColor: '#080830',
+                    }
+                  }}
+                  >
+                    SET PRICE
+                  </ButtonPrimary>
+                }
+              />
+              </>)}
         <br/>
         <FooterArea />
         </>
