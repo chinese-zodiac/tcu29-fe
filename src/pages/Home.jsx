@@ -29,13 +29,12 @@ export default function Home() {
     abi: Tcu29SaleAbi,
     functionName: 'price',
     watch: true,
-    enabled: !!address,
   });
 
   const priceTcu29 =
     !isLoadingPrice && !isErrorPrice && !!dataPrice
-      ? dataPrice
-      : BigNumber.from('1000');
+      ? BigNumber.from(dataPrice)
+      : BigNumber.from('1');
 
   const {
     data: tokenBalDataTcu29,
@@ -81,7 +80,6 @@ export default function Home() {
     address: ADDRESS_TCU29SALE,
     token: ADDRESS_TCU29,
     watch: true,
-    enabled: !!address,
   });
 
   const tokenBalTcu29Sale =
@@ -159,21 +157,29 @@ export default function Home() {
           TCu29 Price:
         </Grid2>
         <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-          ${bnToCompact(priceTcu29, 3, 5)}
+          {priceTcu29?.eq(1) ? 'LOADING' : '$' + bnToCompact(priceTcu29, 3, 5)}
         </Grid2>
         <Grid2 xs={1} sx={{ textAlign: 'right' }}>
           Purchasable:
         </Grid2>
         <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-          {bnToCompact(tokenBalTcu29Sale, 18, 5)} ($
-          {bnToCompact(tokenBalTcu29Sale.mul(priceTcu29).div(1000), 18, 5)})
+          {priceTcu29?.eq(1)
+            ? 'LOADING'
+            : bnToCompact(tokenBalTcu29Sale, 18, 5) +
+              ' ($' +
+              bnToCompact(tokenBalTcu29Sale.mul(priceTcu29).div(1000), 18, 5) +
+              ')'}
         </Grid2>
         <Grid2 xs={1} sx={{ textAlign: 'right' }}>
           Your TCu29:
         </Grid2>
         <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-          {bnToCompact(tokenBalTcu29, 18, 5)} ($
-          {bnToCompact(tokenBalTcu29.mul(priceTcu29).div(1000), 18, 5)})
+          {priceTcu29?.eq(1)
+            ? 'LOADING'
+            : bnToCompact(tokenBalTcu29, 18, 5) +
+              ' ($' +
+              bnToCompact(tokenBalTcu29.mul(priceTcu29).div(1000), 18, 5) +
+              ')'}
         </Grid2>
       </Grid2>
       <DialogBuyTcu29
