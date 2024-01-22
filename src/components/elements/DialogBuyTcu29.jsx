@@ -157,7 +157,7 @@ export default function DialogBuyTcu29({ btn, sx }) {
           sx={{
             padding: '1em',
             background: 'white',
-            border: 'solid 4px #5D2410',
+            border: 'solid 4px #be8961',
             borderRadius: '10px',
             color: 'black',
           }}
@@ -168,14 +168,14 @@ export default function DialogBuyTcu29({ btn, sx }) {
               setInputWad(BigNumber.from(0));
             }}
             sx={{
-              backgroundColor: '#5D2410',
+              backgroundColor: '#be8961',
               borderRadius: '1em',
-              border: 'solid 1px #ede8e6',
-              color: '#ede8e6',
+              border: 'solid 1px #ffffff',
+              color: '#ffffff',
               display: 'inline-block',
               fontSize: '1em',
-              width: '6em',
-              padding: '0.4em 0.25em',
+              width: '5em',
+              padding: '0.3em 0em',
               lineHeight: '1.2em',
               margin: 0,
               marginRight: '1em',
@@ -185,6 +185,17 @@ export default function DialogBuyTcu29({ btn, sx }) {
             }}
           >
             USDT
+            <Box
+              as="img"
+              src="./images/tokens/usdt.svg"
+              sx={{
+                width: '1em',
+                height: '1em',
+                marginLeft: '0.3em',
+                position: 'relative',
+                top: '0.15em',
+              }}
+            />
           </Button>
           <Button
             onClick={() => {
@@ -192,27 +203,39 @@ export default function DialogBuyTcu29({ btn, sx }) {
               setInputWad(BigNumber.from(0));
             }}
             sx={{
-              backgroundColor: '#5D2410',
+              backgroundColor: '#be8961',
               borderRadius: '1em',
-              border: 'solid 1px #ede8e6',
-              color: '#ede8e6',
+              border: 'solid 1px #ffffff',
+              color: '#ffffff',
               display: 'inline-block',
               fontSize: '1em',
-              width: '6em',
-              padding: '0.4em 0.25em',
+              width: '5em',
+              padding: '0.3em 0em',
               lineHeight: '1.2em',
               margin: 0,
+              marginRight: '1em',
               '&:hover': {
                 backgroundColor: '#080830',
               },
             }}
           >
             CZUSD
+            <Box
+              as="img"
+              src="./images/tokens/czusd.svg"
+              sx={{
+                width: '1em',
+                height: '1em',
+                marginLeft: '0.3em',
+                position: 'relative',
+                top: '0.15em',
+              }}
+            />
           </Button>
           <Box
             sx={{
               position: 'relative',
-              border: 'solid 3px #5D2410',
+              border: 'solid 3px #be8961',
               borderRadius: '8px 8px 0px 0px',
               textAlign: 'right',
               paddingBottom: '0.5em',
@@ -273,7 +296,7 @@ export default function DialogBuyTcu29({ btn, sx }) {
                 padding: '0.25em 0em 0.1em 0em',
                 lineHeight: '1em',
                 color: 'white',
-                backgroundColor: '#5D2410',
+                backgroundColor: '#be8961',
                 position: 'relative',
                 top: '-0.15em',
                 display: 'inline-block',
@@ -289,7 +312,7 @@ export default function DialogBuyTcu29({ btn, sx }) {
           <Box
             sx={{
               position: 'relative',
-              border: 'solid 3px #5D2410',
+              border: 'solid 3px #be8961',
               borderTop: '0px',
               borderRadius: '0px 0px 8px 8px',
               textAlign: 'right',
@@ -333,7 +356,7 @@ export default function DialogBuyTcu29({ btn, sx }) {
             <Box
               sx={{
                 position: 'absolute',
-                color: '#5D2410',
+                color: '#be8961',
                 right: '4.5em',
                 top: '-1em',
                 textAlign: 'center',
@@ -341,7 +364,7 @@ export default function DialogBuyTcu29({ btn, sx }) {
                 lineHeight: '1em',
                 backgroundColor: 'white',
                 borderRadius: '2em',
-                border: 'solid 2px #5D2410',
+                border: 'solid 2px #be8961',
               }}
             >
               ▼
@@ -356,7 +379,7 @@ export default function DialogBuyTcu29({ btn, sx }) {
               );
             }}
             sx={{
-              color: '#5D2410',
+              color: '#be8961',
             }}
           />
           <br />
@@ -364,10 +387,10 @@ export default function DialogBuyTcu29({ btn, sx }) {
             onClick={handleClose}
             variant="text"
             sx={{
-              backgroundColor: '#5D2410',
+              backgroundColor: '#be8961',
               borderRadius: '1em',
-              border: 'solid 1px #ede8e6',
-              color: '#ede8e6',
+              border: 'solid 1px #ffffff',
+              color: '#ffffff',
               display: 'inline-block',
               fontSize: '0.75em',
               width: '8em',
@@ -395,10 +418,10 @@ export default function DialogBuyTcu29({ btn, sx }) {
                   }}
                   variant="text"
                   sx={{
-                    backgroundColor: '#5D2410',
+                    backgroundColor: '#be8961',
                     borderRadius: '1em',
-                    border: 'solid 1px #ede8e6',
-                    color: '#ede8e6',
+                    border: 'solid 1px #ffffff',
+                    color: '#ffffff',
                     display: 'inline-block',
                     fontSize: '0.75em',
                     width: '12em',
@@ -430,7 +453,7 @@ export default function DialogBuyTcu29({ btn, sx }) {
                   fontSize: '1em',
                   lineHeight: '1em',
                   marginBottom: '0.5em',
-                  color: '#5D2410',
+                  color: '#be8961',
                 }}
               >
                 TO
@@ -461,10 +484,10 @@ export default function DialogBuyTcu29({ btn, sx }) {
                   }}
                   variant="text"
                   sx={{
-                    backgroundColor: '#5D2410',
+                    backgroundColor: '#be8961',
                     borderRadius: '1em',
-                    border: 'solid 1px #ede8e6',
-                    color: '#ede8e6',
+                    border: 'solid 1px #ffffff',
+                    color: '#ffffff',
                     display: 'inline-block',
                     fontSize: '0.75em',
                     width: '12em',

@@ -14,10 +14,10 @@ export default function DialogUnpause() {
         btn={
           <Button
             sx={{
-              backgroundColor: '#5D2410',
+              backgroundColor: '#be8961',
               borderRadius: '1em',
-              border: 'solid 1px #ede8e6',
-              color: '#ede8e6',
+              border: 'solid 1px #ffffff',
+              color: '#ffffff',
               display: 'inline-block',
               fontSize: '1em',
               width: '8em',

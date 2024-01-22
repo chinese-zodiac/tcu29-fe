@@ -22,7 +22,7 @@ export default function DialogInfo({ btn, children, sx }) {
         <DialogContent
           sx={{
             padding: '1em',
-            background: '#ede8e6',
+            background: '#ffffff',
             border: 'solid 4px #9E5635',
             borderRadius: '10px',
             color: 'black',
@@ -35,7 +35,7 @@ export default function DialogInfo({ btn, children, sx }) {
             autoFocus
             sx={{
               backgroundColor: '#9E5635',
-              color: '#ede8e6',
+              color: '#ffffff',
               marginTop: '1em',
               marginBottom: '2em',
               fontSize: '1.25em',

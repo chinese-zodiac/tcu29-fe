@@ -124,8 +124,18 @@ export default function Home() {
 
   return (
     <>
+      <ConnectWallet />
+      <Box
+        as="img"
+        src="./images/copper-icon.png"
+        sx={{
+          width: '10em',
+          height: '10em',
+          marginTop: '1em',
+        }}
+      />
       <Typography as="h1" sx={{ fontSize: '2em' }}>
-        TCu29 Sale Dapp
+        TCU29 SALE DAPP
       </Typography>
       <Typography
         as="p"
@@ -134,6 +144,7 @@ export default function Home() {
           marginLeft: 'auto',
           marginRight: 'auto',
           marginBottom: '1em',
+          lineHeight: '1.2em',
         }}
       >
         Buy TCu29 tokens, each backed by 1 pound of physical copper. RWA copper
@@ -145,12 +156,11 @@ export default function Home() {
           href={LINK_OPERATOR_INFO}
           target="_blank"
           rel="noreferrer"
-          sx={{ color: '#ede8e6' }}
+          sx={{ color: '#ffffff' }}
         >
           tempestascoins.io
         </Typography>
       </Typography>
-      <ConnectWallet />
       <br />
       <Grid2 container spacing={1} columns={2}>
         <Grid2 xs={1} sx={{ textAlign: 'right' }}>
@@ -186,40 +196,34 @@ export default function Home() {
         btn={
           <ButtonPrimary
             sx={{
-              backgroundColor: '#5D2410',
-              borderRadius: '1em',
-              border: 'solid 1px #ede8e6',
-              display: 'inline-block',
-              fontSize: '1.5em',
-              width: '11em',
-              padding: '0.4em 0.25em',
-              lineHeight: '1.2em',
-              color: '#ede8e6',
-              margin: 0,
+              width: '8em',
               marginTop: '0.66em',
+              fontSize: '1.5em',
+              position: 'relative',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              color: '#be8961',
+              borderRadius: '1.5em',
+              border: 'solid 5px #be8961',
+              fontSize: 28,
+              backgroundColor: '#f3f3f3',
               '&:hover': {
                 backgroundColor: '#080830',
               },
             }}
           >
+            BUY NOW
             <Box
               sx={{
-                backgroundImage: "url('./logo.png')",
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                width: '1em',
-                height: '1em',
-                margin: '0',
-                marginRight: '0.25em',
-                position: 'relative',
-                top: '0.15em',
-                display: 'inline-block',
-                '&:hover': {
-                  backgroundColor: '#080830',
-                },
+                display: 'block',
+                position: 'absolute',
+                fontSize: '36px',
+                right: '15px',
+                top: '-0.17em',
               }}
-            />
-            BUY TCU29
+            >
+              ›
+            </Box>
           </ButtonPrimary>
         }
       />
@@ -254,10 +258,10 @@ export default function Home() {
             btn={
               <ButtonPrimary
                 sx={{
-                  backgroundColor: '#5D2410',
+                  backgroundColor: '#be8961',
                   borderRadius: '1em',
-                  border: 'solid 1px #ede8e6',
-                  color: '#ede8e6',
+                  border: 'solid 1px #ffffff',
+                  color: '#ffffff',
                   display: 'inline-block',
                   fontSize: '1em',
                   width: '8em',

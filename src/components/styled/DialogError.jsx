@@ -14,7 +14,7 @@ export default function DialogError({ children, title, sx, open, setOpen }) {
         <DialogContent
           sx={{
             padding: '1em',
-            backgroundColor: '#ede8e6',
+            backgroundColor: '#ffffff',
             border: 'solid #6E1C1C 4px',
             color: 'black',
             textAlign: 'left',
@@ -46,7 +46,7 @@ export default function DialogError({ children, title, sx, open, setOpen }) {
               sx={{
                 position: 'relative',
                 textShadow:
-                  '#ede8e6 0px 0px 2px,#ede8e6 0px 0px 4px,#ede8e6 0px 0px 8px',
+                  '#ffffff 0px 0px 2px,#ffffff 0px 0px 4px,#ffffff 0px 0px 8px',
               }}
             >
               {children}
@@ -56,7 +56,7 @@ export default function DialogError({ children, title, sx, open, setOpen }) {
               variant="text"
               autoFocus
               sx={{
-                color: '#ede8e6',
+                color: '#ffffff',
                 backgroundColor: '#6E1C1C',
                 display: 'block',
                 marginTop: '1em',

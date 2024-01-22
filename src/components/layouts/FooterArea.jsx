@@ -24,8 +24,8 @@ export default function FooterArea({ sx }) {
     <>
       <Box
         sx={{
-          backgroundColor: '#201e1d',
-          color: '#ede8e6',
+          backgroundColor: '#732817',
+          color: '#ffffff',
           padding: '100px 0px',
           margin: '0',
           marginTop: '5em',

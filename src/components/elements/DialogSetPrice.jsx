@@ -52,7 +52,7 @@ export default function DialogSetPrice({ btn, sx }) {
           sx={{
             padding: '1em',
             background: 'white',
-            border: 'solid 4px #5D2410',
+            border: 'solid 4px #be8961',
             borderRadius: '10px',
             color: 'black',
           }}
@@ -60,7 +60,7 @@ export default function DialogSetPrice({ btn, sx }) {
           <Box
             sx={{
               position: 'relative',
-              border: 'solid 3px #5D2410',
+              border: 'solid 3px #be8961',
               borderRadius: '8px 8px 0px 0px',
               textAlign: 'right',
               paddingBottom: '0.5em',
@@ -98,10 +98,10 @@ export default function DialogSetPrice({ btn, sx }) {
             onClick={handleClose}
             variant="text"
             sx={{
-              backgroundColor: '#5D2410',
+              backgroundColor: '#be8961',
               borderRadius: '1em',
-              border: 'solid 1px #ede8e6',
-              color: '#ede8e6',
+              border: 'solid 1px #ffffff',
+              color: '#ffffff',
               display: 'inline-block',
               fontSize: '0.75em',
               width: '8em',
@@ -129,10 +129,10 @@ export default function DialogSetPrice({ btn, sx }) {
                 }}
                 variant="text"
                 sx={{
-                  backgroundColor: '#5D2410',
+                  backgroundColor: '#be8961',
                   borderRadius: '1em',
-                  border: 'solid 1px #ede8e6',
-                  color: '#ede8e6',
+                  border: 'solid 1px #ffffff',
+                  color: '#ffffff',
                   display: 'inline-block',
                   fontSize: '0.75em',
                   width: '12em',

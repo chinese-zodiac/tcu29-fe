@@ -7,7 +7,7 @@ import makeBlockie from 'ethereum-blockies-base64';
 import React from 'react';
 import { useAccount, useDisconnect } from 'wagmi';
 
-export default function ConnectWallet() {
+export default function ConnectWallet(sx) {
   const {
     isOpen: web3ModalIsOpen,
     open: web3ModalOpen,
@@ -19,7 +19,13 @@ export default function ConnectWallet() {
 
   return (
     <>
-      <Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          display: 'block',
+          right: '1em',
+        }}
+      >
         <Box>
           {!!address ? (
             <>
@@ -27,17 +33,15 @@ export default function ConnectWallet() {
                 <Button
                   onClick={() => web3ModalOpen({ view: 'Account' })}
                   sx={{
-                    textTransform: 'unset',
-                    color: '#ede8e6',
-                    fontSize: 28,
-                    fontWeight: 'bold',
-                    WebkitTextStroke: '1px #2b2421',
-                    paddingLeft: '1em',
-                    paddingRight: '1em',
-                    border: 'solid 1px #ede8e6',
-                    borderRadius: '0.9em',
-                    backgroundColor: '#9E5635',
                     width: '8em',
+                    position: 'relative',
+                    fontWeight: 'bold',
+                    textTransform: 'none',
+                    color: '#be8961',
+                    borderRadius: '1.5em',
+                    border: 'solid 5px #be8961',
+                    fontSize: 28,
+                    backgroundColor: '#f3f3f3',
                     '&:hover': {
                       backgroundColor: '#080830',
                     },
@@ -50,7 +54,7 @@ export default function ConnectWallet() {
                       mr: 1,
                       height: 'auto',
                       width: '0.9em',
-                      border: 'solid 1px #ede8e6',
+                      border: 'solid 3px #be8961',
                     }}
                   />
                   0x...{address.substring(36)}
@@ -64,13 +68,14 @@ export default function ConnectWallet() {
                   onClick={() => web3ModalOpen({ view: 'Connect' })}
                   sx={{
                     width: '8em',
+                    position: 'relative',
                     fontWeight: 'bold',
-                    color: '#ede8e6',
-                    WebkitTextStroke: '1px #2b2421',
-                    borderRadius: '0.9em',
-                    border: 'solid 1px #ede8e6',
+                    textTransform: 'none',
+                    color: '#be8961',
+                    borderRadius: '1.5em',
+                    border: 'solid 5px #be8961',
                     fontSize: 28,
-                    backgroundColor: '#9E5635',
+                    backgroundColor: '#f3f3f3',
                     '&:hover': {
                       backgroundColor: '#080830',
                     },
@@ -78,16 +83,16 @@ export default function ConnectWallet() {
                 >
                   Connect{' '}
                   <Box
-                    as="img"
-                    src="./images/wallet.svg"
                     sx={{
-                      display: 'inline-block',
-                      maxWidth: 28,
-                      marginLeft: 1,
-                      position: 'relative',
-                      top: '-3px',
+                      display: 'block',
+                      position: 'absolute',
+                      fontSize: '36px',
+                      right: '15px',
+                      top: '-0.17em',
                     }}
-                  />
+                  >
+                    ›
+                  </Box>
                 </Button>
               </Tooltip>
             </>
