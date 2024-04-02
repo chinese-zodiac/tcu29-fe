@@ -32,7 +32,7 @@ export default function DialogConfirm({
             variant="text"
             autoFocus
             sx={{
-              backgroundColor: '#be8961',
+              backgroundColor: '#06a69e',
               borderRadius: '1em',
               border: 'solid 1px #ffffff',
               display: 'inline-block',
@@ -44,7 +44,7 @@ export default function DialogConfirm({
               margin: 0,
               marginRight: '2em',
               '&:hover': {
-                backgroundColor: '#be8961',
+                backgroundColor: '#06a69e',
               },
             }}
           >
@@ -60,7 +60,7 @@ export default function DialogConfirm({
             variant="text"
             autoFocus
             sx={{
-              backgroundColor: '#be8961',
+              backgroundColor: '#06a69e',
               borderRadius: '1em',
               border: 'solid 1px #ffffff',
               display: 'inline-block',
@@ -71,7 +71,7 @@ export default function DialogConfirm({
               color: '#ffffff',
               margin: 0,
               '&:hover': {
-                backgroundColor: '#be8961',
+                backgroundColor: '#06a69e',
               },
             }}
           >

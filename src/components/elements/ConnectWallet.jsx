@@ -37,11 +37,11 @@ export default function ConnectWallet(sx) {
                     position: 'relative',
                     fontWeight: 'bold',
                     textTransform: 'none',
-                    color: '#be8961',
+                    color: '#06a69e',
                     borderRadius: '1.5em',
-                    border: 'solid 5px #be8961',
+                    border: 'solid 5px #06a69e',
                     fontSize: 28,
-                    backgroundColor: '#f3f3f3',
+                    backgroundColor: '#eff2ff',
                     '&:hover': {
                       backgroundColor: '#080830',
                     },
@@ -54,7 +54,7 @@ export default function ConnectWallet(sx) {
                       mr: 1,
                       height: 'auto',
                       width: '0.9em',
-                      border: 'solid 3px #be8961',
+                      border: 'solid 3px #06a69e',
                     }}
                   />
                   0x...{address.substring(36)}
@@ -71,11 +71,11 @@ export default function ConnectWallet(sx) {
                     position: 'relative',
                     fontWeight: 'bold',
                     textTransform: 'none',
-                    color: '#be8961',
+                    color: '#06a69e',
                     borderRadius: '1.5em',
-                    border: 'solid 5px #be8961',
+                    border: 'solid 5px #06a69e',
                     fontSize: 28,
-                    backgroundColor: '#f3f3f3',
+                    backgroundColor: '#eff2ff',
                     '&:hover': {
                       backgroundColor: '#080830',
                     },

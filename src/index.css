@@ -9,7 +9,7 @@ Sandy brown
 #EF915B
 
 Redwood
-#be8961*/
+#06a69e*/
 
 :root {
   color-scheme: dark;
@@ -18,13 +18,13 @@ Redwood
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  --color-background: #9e2e16;
-  --color-background2: #732817;
-  --color-background-btn: #f3f3f3;
-  --color-accent: #ef915b;
-  --color-notice: #be8961;
-  --color-brand: #9e5635;
-  --color-foreground: #ffffff;
+  --color-background: #effcfb;
+  --color-background2: #002E53;
+  --color-background-btn: #eff2ff;
+  --color-accent: #00C3B9;
+  --color-notice: #06a69e;
+  --color-brand: #adedea;
+  --color-foreground: #002E53;
   --color-secondary: #080830;
 }
 
@@ -37,7 +37,7 @@ body {
   padding-top: 1em;
   min-height: 100vh;
   width: 100%;
-  font-family: 'Exo2';
+  font-family: 'Figtree';
   letter-spacing: -0.05em;
   text-align: center;
   overflow-x: hidden !important;
@@ -54,6 +54,6 @@ p {
 
 * {
 
-  font-family: 'Exo2' !important;
+  font-family: 'Figtree' !important;
   letter-spacing: -0.05em !important;
 }

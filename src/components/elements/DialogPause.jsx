@@ -14,7 +14,7 @@ export default function DialogPause() {
         btn={
           <Button
             sx={{
-              backgroundColor: '#be8961',
+              backgroundColor: '#06a69e',
               borderRadius: '1em',
               border: 'solid 1px #ffffff',
               color: '#ffffff',

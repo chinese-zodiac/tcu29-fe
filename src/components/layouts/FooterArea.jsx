@@ -24,7 +24,7 @@ export default function FooterArea({ sx }) {
     <>
       <Box
         sx={{
-          backgroundColor: '#732817',
+          backgroundColor: '#002E53',
           color: '#ffffff',
           padding: '100px 0px',
           margin: '0',
@@ -108,7 +108,7 @@ export default function FooterArea({ sx }) {
                 they have read, understood, and agreed to be bound by the terms
                 and conditions set forth in CZODIAC's Terms of Use. The Terms of
                 Use, available at{' '}
-                <a css={{ color: 'antiquewhite' }} href={LINK_TERMS_OF_USE}>
+                <a css={{ color: '#adedea' }} href={LINK_TERMS_OF_USE}>
                   {LINK_TERMS_OF_USE}
                 </a>
                 , constitute a legally binding agreement between users and
@@ -122,7 +122,7 @@ export default function FooterArea({ sx }) {
                 all applicable laws and regulations.
                 <br />
                 <br />
-                <a css={{ color: 'antiquewhite' }} href={LINK_TERMS_OF_USE}>
+                <a css={{ color: '#adedea' }} href={LINK_TERMS_OF_USE}>
                   LINK TO TERMS OF USE
                 </a>
               </p>
@@ -135,7 +135,7 @@ export default function FooterArea({ sx }) {
                 At CZODIAC, we are committed to protecting the privacy and
                 personal information of our users. We encourage you to read our
                 Privacy Policy, which can be found at{' '}
-                <a css={{ color: 'antiquewhite' }} href={LINK_PRIVACY_POLICY}>
+                <a css={{ color: '#adedea' }} href={LINK_PRIVACY_POLICY}>
                   {LINK_PRIVACY_POLICY}
                 </a>
                 . This policy outlines the types of personal information that
@@ -149,7 +149,7 @@ export default function FooterArea({ sx }) {
                 practices, please contact us at team@czodiac.com.
                 <br />
                 <br />
-                <a css={{ color: 'antiquewhite' }} href={LINK_PRIVACY_POLICY}>
+                <a css={{ color: '#adedea' }} href={LINK_PRIVACY_POLICY}>
                   LINK TO PRIVACY POLICY
                 </a>
               </p>

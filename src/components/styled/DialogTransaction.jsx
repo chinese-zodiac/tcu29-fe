@@ -73,7 +73,7 @@ export default function DialogTransaction({
         <Typography
           as="h1"
           sx={{
-            color: '#9e2e16',
+            color: '#effcfb',
             fontSize: '2em',
             lineHeight: '1em',
             marginBottom: '0.5em',
@@ -88,7 +88,7 @@ export default function DialogTransaction({
           sx={{
             padding: '1em',
             background: '#ffffff',
-            border: 'solid 4px #be8961',
+            border: 'solid 4px #06a69e',
             borderRadius: '10px',
             color: 'black',
           }}
@@ -96,7 +96,7 @@ export default function DialogTransaction({
           <Typography
             as="h1"
             sx={{
-              color: '#be8961',
+              color: '#06a69e',
               fontWeight: 'bold',
               fontSize: '2em',
               lineHeight: '1em',
@@ -175,7 +175,7 @@ export default function DialogTransaction({
               variant="text"
               autoFocus
               sx={{
-                backgroundColor: '#be8961',
+                backgroundColor: '#06a69e',
                 borderRadius: '1em',
                 border: 'solid 1px #ffffff',
                 color: '#ffffff',
@@ -204,7 +204,7 @@ export default function DialogTransaction({
             variant="text"
             autoFocus
             sx={{
-              backgroundColor: '#be8961',
+              backgroundColor: '#06a69e',
               borderRadius: '1em',
               border: 'solid 1px #ffffff',
               color: '#ffffff',

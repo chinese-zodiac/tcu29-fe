@@ -124,163 +124,188 @@ export default function Home() {
 
   return (
     <>
-      <ConnectWallet />
       <Box
-        as="img"
-        src="./images/copper-icon.png"
         sx={{
-          width: '10em',
-          height: '10em',
-          marginTop: '1em',
-        }}
-      />
-      <Typography as="h1" sx={{ fontSize: '2em' }}>
-        TCU29 SALE DAPP
-      </Typography>
-      <Typography
-        as="p"
-        sx={{
-          maxWidth: '360px',
+          maxWidth: '960px',
           marginLeft: 'auto',
           marginRight: 'auto',
-          marginBottom: '1em',
-          lineHeight: '1.2em',
+          position: 'relative',
         }}
       >
-        Buy TCu29 tokens, each backed by 1 pound of physical copper. RWA copper
-        backed blockchain tokens suitable for every portfolio.
-        <br />
-        Learn more at{' '}
-        <Typography
-          as="a"
-          href={LINK_OPERATOR_INFO}
-          target="_blank"
-          rel="noreferrer"
-          sx={{ color: '#ffffff' }}
-        >
-          tempestascoins.io
-        </Typography>
-      </Typography>
-      <br />
-      <Grid2 container spacing={1} columns={2}>
-        <Grid2 xs={1} sx={{ textAlign: 'right' }}>
-          TCu29 Price:
-        </Grid2>
-        <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-          {priceTcu29?.eq(1) ? 'LOADING' : '$' + bnToCompact(priceTcu29, 3, 5)}
-        </Grid2>
-        <Grid2 xs={1} sx={{ textAlign: 'right' }}>
-          Purchasable:
-        </Grid2>
-        <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-          {priceTcu29?.eq(1)
-            ? 'LOADING'
-            : bnToCompact(tokenBalTcu29Sale, 18, 5) +
-              ' ($' +
-              bnToCompact(tokenBalTcu29Sale.mul(priceTcu29).div(1000), 18, 5) +
-              ')'}
-        </Grid2>
-        <Grid2 xs={1} sx={{ textAlign: 'right' }}>
-          Your TCu29:
-        </Grid2>
-        <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-          {priceTcu29?.eq(1)
-            ? 'LOADING'
-            : bnToCompact(tokenBalTcu29, 18, 5) +
-              ' ($' +
-              bnToCompact(tokenBalTcu29.mul(priceTcu29).div(1000), 18, 5) +
-              ')'}
-        </Grid2>
-      </Grid2>
-      <DialogBuyTcu29
-        btn={
-          <ButtonPrimary
+        <a href="https://tcu29.io" target="_blank">
+          <Box
+            as="img"
+            src="./images/copper-icon.png"
             sx={{
-              width: '8em',
-              marginTop: '0.66em',
-              fontSize: '1.5em',
-              position: 'relative',
-              fontWeight: 'bold',
-              textTransform: 'none',
-              color: '#be8961',
-              borderRadius: '1.5em',
-              border: 'solid 5px #be8961',
-              fontSize: 28,
-              backgroundColor: '#f3f3f3',
-              '&:hover': {
-                backgroundColor: '#080830',
-              },
+              width: '10em',
+              height: 'auto',
+              marginTop: '1em',
             }}
+          />
+        </a>
+        <ConnectWallet />
+        <Typography
+          as="h1"
+          sx={{
+            fontSize: '2em',
+            color: '#002E53',
+            fontWeight: 'bold',
+            marginTop: '2em',
+          }}
+        >
+          TCU29 SALE DAPP
+        </Typography>
+        <Typography
+          as="p"
+          sx={{
+            maxWidth: '360px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginBottom: '1em',
+            lineHeight: '1.2em',
+          }}
+        >
+          Buy TCu29 tokens, each backed by 1 pound of physical copper. RWA
+          copper backed blockchain tokens suitable for every portfolio.
+          <br />
+          Learn more at{' '}
+          <Typography
+            as="a"
+            href={LINK_OPERATOR_INFO}
+            target="_blank"
+            rel="noreferrer"
+            sx={{ color: '#ffffff' }}
           >
-            BUY NOW
-            <Box
+            tempestascoins.io
+          </Typography>
+        </Typography>
+        <br />
+        <Grid2 container spacing={1} columns={2}>
+          <Grid2 xs={1} sx={{ textAlign: 'right' }}>
+            TCu29 Price:
+          </Grid2>
+          <Grid2 xs={1} sx={{ textAlign: 'left' }}>
+            {priceTcu29?.eq(1)
+              ? 'LOADING'
+              : '$' + bnToCompact(priceTcu29, 3, 5)}
+          </Grid2>
+          <Grid2 xs={1} sx={{ textAlign: 'right' }}>
+            Purchasable:
+          </Grid2>
+          <Grid2 xs={1} sx={{ textAlign: 'left' }}>
+            {priceTcu29?.eq(1)
+              ? 'LOADING'
+              : bnToCompact(tokenBalTcu29Sale, 18, 5) +
+                ' ($' +
+                bnToCompact(
+                  tokenBalTcu29Sale.mul(priceTcu29).div(1000),
+                  18,
+                  5
+                ) +
+                ')'}
+          </Grid2>
+          <Grid2 xs={1} sx={{ textAlign: 'right' }}>
+            Your TCu29:
+          </Grid2>
+          <Grid2 xs={1} sx={{ textAlign: 'left' }}>
+            {priceTcu29?.eq(1)
+              ? 'LOADING'
+              : bnToCompact(tokenBalTcu29, 18, 5) +
+                ' ($' +
+                bnToCompact(tokenBalTcu29.mul(priceTcu29).div(1000), 18, 5) +
+                ')'}
+          </Grid2>
+        </Grid2>
+        <DialogBuyTcu29
+          btn={
+            <ButtonPrimary
               sx={{
-                display: 'block',
-                position: 'absolute',
-                fontSize: '36px',
-                right: '15px',
-                top: '-0.17em',
+                width: '8em',
+                marginTop: '0.66em',
+                fontSize: '1.5em',
+                position: 'relative',
+                fontWeight: 'bold',
+                textTransform: 'none',
+                color: '#06a69e',
+                borderRadius: '1.5em',
+                border: 'solid 5px #06a69e',
+                fontSize: 28,
+                backgroundColor: '#eff2ff',
+                '&:hover': {
+                  backgroundColor: '#080830',
+                },
               }}
             >
-              ›
-            </Box>
-          </ButtonPrimary>
-        }
-      />
-      {hasRoleManager && (
-        <>
-          <br />
-          <br />
-          <hr />
-          <Typography as="h2" sx={{ fontSize: '2em' }}>
-            Administrative Functions
-          </Typography>
-          <Typography>
-            To make TCu29 available for sale, send TCu29 tokens to: <br />
-            {ADDRESS_TCU29SALE}
-          </Typography>
-          <br />
-          <Typography>
-            Pause Status: {isPaused ? 'PAUSED' : 'NOT PAUSED'}
-          </Typography>
-          {isPaused ? <DialogUnpause /> : <DialogPause />}
-          <br />
-          <br />
-          <Typography>
-            CZUSD to Distribute: {bnToCompact(tokenBalCzusdSaleDapp, 18, 5)}
-          </Typography>
-          <DialogDistribute />
-          <br />
-          <br />
-          Current TCu29 Price: ${bnToCompact(priceTcu29, 3, 5)}
-          <br />
-          <DialogSetPrice
-            btn={
-              <ButtonPrimary
+              BUY NOW
+              <Box
                 sx={{
-                  backgroundColor: '#be8961',
-                  borderRadius: '1em',
-                  border: 'solid 1px #ffffff',
-                  color: '#ffffff',
-                  display: 'inline-block',
-                  fontSize: '1em',
-                  width: '8em',
-                  padding: '0.4em 0.25em',
-                  lineHeight: '1.2em',
-                  margin: 0,
-                  marginRight: '1em',
-                  '&:hover': {
-                    backgroundColor: '#080830',
-                  },
+                  display: 'block',
+                  position: 'absolute',
+                  fontSize: '36px',
+                  right: '15px',
+                  top: '-0.17em',
                 }}
               >
-                SET PRICE
-              </ButtonPrimary>
-            }
-          />
-        </>
-      )}
-      <br />
+                ›
+              </Box>
+            </ButtonPrimary>
+          }
+        />
+        {hasRoleManager && (
+          <>
+            <br />
+            <br />
+            <hr />
+            <Typography as="h2" sx={{ fontSize: '2em' }}>
+              Administrative Functions
+            </Typography>
+            <Typography>
+              To make TCu29 available for sale, send TCu29 tokens to: <br />
+              {ADDRESS_TCU29SALE}
+            </Typography>
+            <br />
+            <Typography>
+              Pause Status: {isPaused ? 'PAUSED' : 'NOT PAUSED'}
+            </Typography>
+            {isPaused ? <DialogUnpause /> : <DialogPause />}
+            <br />
+            <br />
+            <Typography>
+              CZUSD to Distribute: {bnToCompact(tokenBalCzusdSaleDapp, 18, 5)}
+            </Typography>
+            <DialogDistribute />
+            <br />
+            <br />
+            Current TCu29 Price: ${bnToCompact(priceTcu29, 3, 5)}
+            <br />
+            <DialogSetPrice
+              btn={
+                <ButtonPrimary
+                  sx={{
+                    backgroundColor: '#06a69e',
+                    borderRadius: '1em',
+                    border: 'solid 1px #ffffff',
+                    color: '#ffffff',
+                    display: 'inline-block',
+                    fontSize: '1em',
+                    width: '8em',
+                    padding: '0.4em 0.25em',
+                    lineHeight: '1.2em',
+                    margin: 0,
+                    marginRight: '1em',
+                    '&:hover': {
+                      backgroundColor: '#080830',
+                    },
+                  }}
+                >
+                  SET PRICE
+                </ButtonPrimary>
+              }
+            />
+          </>
+        )}
+        <br />
+      </Box>
       <FooterArea />
     </>
   );
