@@ -174,9 +174,9 @@ export default function Home() {
             href={LINK_OPERATOR_INFO}
             target="_blank"
             rel="noreferrer"
-            sx={{ color: '#ffffff' }}
+            sx={{ color: '#002E53' }}
           >
-            tempestascoins.io
+            tcu29.io
           </Typography>
         </Typography>
         <br />

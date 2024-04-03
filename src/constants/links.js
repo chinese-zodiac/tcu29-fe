@@ -10,4 +10,4 @@ export const LINK_TERMS_OF_USE =
 export const LINK_PRIVACY_POLICY =
   'https://docs.czodiac.com/czodiac-litepaper/privacy-policy';
 
-export const LINK_OPERATOR_INFO = 'https://tempestascoins.io';
+export const LINK_OPERATOR_INFO = 'https://tcu29.io';
