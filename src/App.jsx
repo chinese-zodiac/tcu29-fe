@@ -20,7 +20,7 @@ const metadata = {
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
 // 3. Create modal
-createWeb3Modal({ wagmiConfig, projectId, chains });
+createWeb3Modal({ wagmiConfig, projectId, chains, defaultChain: bsc });
 
 function App({ children }) {
   return (
