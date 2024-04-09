@@ -21,7 +21,7 @@ export default function Footer({ children }) {
               className="footer-logo"
             />
             <p>
-              © Copyright {new Date().getFullYear()} Tempestas Copper.
+              © Copyright {new Date().getFullYear()} CZODIAC.
               <br />
               All rights reserved.
             </p>
@@ -32,12 +32,12 @@ export default function Footer({ children }) {
           <h4 className="footer-titles">Company</h4>
           <ul className="footer-stacked-links">
             <li className="ftr-links">
-              <a href="https://www.tcu29.io/#about-tcu29" target="_blank">
-                About Us
+              <a href="#about-tcu29" target="_blank">
+                About TCu29
               </a>
             </li>
             <li className="ftr-links">
-              <a href="https://www.tcu29.io/#why-copper" target="_blank">
+              <a href="#why-copper" target="_blank">
                 Why Copper?
               </a>
             </li>
@@ -51,13 +51,10 @@ export default function Footer({ children }) {
         </div>
 
         <div className="footer-col--3">
-          <h4 className="footer-titles">Legal</h4>
+          <h4 className="footer-titles">Links</h4>
           <ul className="footer-stacked-links">
-            <li className="ftr-links">Legal Notice</li>
-            <li className="ftr-links">Privacy Policy</li>
-            <li className="ftr-links">Terms of Use</li>
             <li className="ftr-links">
-              <a href="https://www.tcu29.io/#whitepaper" target="_blank">
+              <a href="#whitepaper" target="_blank">
                 Whitepaper
               </a>
             </li>
