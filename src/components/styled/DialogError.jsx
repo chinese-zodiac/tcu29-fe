@@ -1,4 +1,4 @@
-import { Button, DialogContent, Typography } from '@mui/material';
+import { DialogContent, Typography } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import { Box } from '@mui/system';
 import * as React from 'react';
@@ -51,27 +51,9 @@ export default function DialogError({ children, title, sx, open, setOpen }) {
             >
               {children}
             </Box>
-            <Button
-              onClick={handleClose}
-              variant="text"
-              autoFocus
-              sx={{
-                color: '#ffffff',
-                backgroundColor: '#6E1C1C',
-                display: 'block',
-                marginTop: '1em',
-                paddingTop: '0.1em',
-                paddingBottom: '0',
-                width: '5em',
-                lineHeight: '1.2em',
-                fontSize: '2em',
-                '&:hover': {
-                  backgroundColor: '#6E1C1C',
-                },
-              }}
-            >
+            <button onClick={handleClose} className="primary-btn">
               GOT IT!
-            </Button>
+            </button>
           </Box>
         </DialogContent>
       </Dialog>

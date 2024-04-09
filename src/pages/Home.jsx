@@ -1,12 +1,8 @@
 import React from 'react';
 import { useAccount, useBalance, useContractRead } from 'wagmi';
-import ConnectWallet from '../components/elements/ConnectWallet';
-import { Typography, TextField, Box } from '@mui/material';
+import { Typography } from '@mui/material';
 import FooterArea from '../components/layouts/FooterArea';
-import { LINK_OPERATOR_INFO } from '../constants/links';
-import Grid2 from '@mui/material/Unstable_Grid2';
 import DialogBuyTcu29 from '../components/elements/DialogBuyTcu29';
-import ButtonPrimary from '../components/styled/ButtonPrimary';
 import { BigNumber, ethers } from 'ethers';
 import { ADDRESS_TCU29, ADDRESS_TCU29SALE } from '../constants/addresses';
 import { parseEther } from 'viem';
@@ -124,188 +120,112 @@ export default function Home() {
 
   return (
     <>
-      <Box
-        sx={{
-          maxWidth: '960px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          position: 'relative',
-        }}
-      >
-        <a href="https://tcu29.io" target="_blank">
-          <Box
-            as="img"
-            src="./images/copper-icon.png"
-            sx={{
-              width: '10em',
-              height: 'auto',
-              marginTop: '1em',
-            }}
-          />
-        </a>
-        <ConnectWallet />
-        <Typography
-          as="h1"
-          sx={{
-            fontSize: '2em',
-            color: '#002E53',
-            fontWeight: 'bold',
-            marginTop: '2em',
-          }}
-        >
-          TCU29 SALE DAPP
-        </Typography>
-        <Typography
-          as="p"
-          sx={{
-            maxWidth: '360px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginBottom: '1em',
-            lineHeight: '1.2em',
-          }}
-        >
-          Buy TCu29 tokens, each backed by 1 pound of physical copper. RWA
-          copper backed blockchain tokens suitable for every portfolio.
-          <br />
-          Learn more at{' '}
-          <Typography
-            as="a"
-            href={LINK_OPERATOR_INFO}
-            target="_blank"
-            rel="noreferrer"
-            sx={{ color: '#002E53' }}
-          >
-            tcu29.io
-          </Typography>
-        </Typography>
-        <br />
-        <Grid2 container spacing={1} columns={2}>
-          <Grid2 xs={1} sx={{ textAlign: 'right' }}>
-            TCu29 Price:
-          </Grid2>
-          <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-            {priceTcu29?.eq(1)
-              ? 'LOADING'
-              : '$' + bnToCompact(priceTcu29, 3, 5)}
-          </Grid2>
-          <Grid2 xs={1} sx={{ textAlign: 'right' }}>
-            Purchasable:
-          </Grid2>
-          <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-            {priceTcu29?.eq(1)
-              ? 'LOADING'
-              : bnToCompact(tokenBalTcu29Sale, 18, 5) +
-                ' ($' +
-                bnToCompact(
-                  tokenBalTcu29Sale.mul(priceTcu29).div(1000),
-                  18,
-                  5
-                ) +
-                ')'}
-          </Grid2>
-          <Grid2 xs={1} sx={{ textAlign: 'right' }}>
-            Your TCu29:
-          </Grid2>
-          <Grid2 xs={1} sx={{ textAlign: 'left' }}>
-            {priceTcu29?.eq(1)
-              ? 'LOADING'
-              : bnToCompact(tokenBalTcu29, 18, 5) +
-                ' ($' +
-                bnToCompact(tokenBalTcu29.mul(priceTcu29).div(1000), 18, 5) +
-                ')'}
-          </Grid2>
-        </Grid2>
-        <DialogBuyTcu29
-          btn={
-            <ButtonPrimary
-              sx={{
-                width: '8em',
-                marginTop: '0.66em',
-                fontSize: '1.5em',
-                position: 'relative',
-                fontWeight: 'bold',
-                textTransform: 'none',
-                color: '#06a69e',
-                borderRadius: '1.5em',
-                border: 'solid 5px #06a69e',
-                fontSize: 28,
-                backgroundColor: '#eff2ff',
-                '&:hover': {
-                  backgroundColor: '#080830',
-                },
-              }}
-            >
-              BUY NOW
-              <Box
-                sx={{
-                  display: 'block',
-                  position: 'absolute',
-                  fontSize: '36px',
-                  right: '15px',
-                  top: '-0.17em',
-                }}
-              >
-                ›
-              </Box>
-            </ButtonPrimary>
-          }
-        />
-        {hasRoleManager && (
-          <>
-            <br />
-            <br />
-            <hr />
-            <Typography as="h2" sx={{ fontSize: '2em' }}>
-              Administrative Functions
-            </Typography>
-            <Typography>
-              To make TCu29 available for sale, send TCu29 tokens to: <br />
-              {ADDRESS_TCU29SALE}
-            </Typography>
-            <br />
-            <Typography>
-              Pause Status: {isPaused ? 'PAUSED' : 'NOT PAUSED'}
-            </Typography>
-            {isPaused ? <DialogUnpause /> : <DialogPause />}
-            <br />
-            <br />
-            <Typography>
-              CZUSD to Distribute: {bnToCompact(tokenBalCzusdSaleDapp, 18, 5)}
-            </Typography>
-            <DialogDistribute />
-            <br />
-            <br />
-            Current TCu29 Price: ${bnToCompact(priceTcu29, 3, 5)}
-            <br />
-            <DialogSetPrice
+      {hasRoleManager && (
+        <div className="tempestas-contentblock--white">
+          <div className="tempestas-contentblock--white-wrapper">
+            <div className="tempestas-contentblock--content-left">
+              <h3 className="tempestas-contentblock--white-title">
+                Administrative Functions
+              </h3>
+              <p className="no-space--top-bottom">
+                To make TCu29 available for sale, send TCu29 tokens to: <br />
+                {ADDRESS_TCU29SALE}
+              </p>
+            </div>
+
+            <div className="tempestas-contentblock--content-right">
+              <div className="tempestas-contentblock--flex">
+                <div className="tempestas-hero--content">
+                  <Typography>
+                    Pause Status: {isPaused ? 'PAUSED' : 'NOT PAUSED'}
+                  </Typography>
+                  {isPaused ? <DialogUnpause /> : <DialogPause />}
+                </div>
+                <div className="tempestas-hero--content">
+                  <Typography>
+                    CZUSD to Distribute:{' '}
+                    {bnToCompact(tokenBalCzusdSaleDapp, 18, 5)}
+                  </Typography>
+                  <DialogDistribute />
+                </div>
+                <div className="tempestas-hero--content">
+                  <Typography>
+                    Current TCu29 Price: ${bnToCompact(priceTcu29, 3, 5)}
+                  </Typography>
+                  <DialogSetPrice
+                    btn={<button className="primary-btn">SET PRICE</button>}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="tempestas-hero">
+        <div className="tempestas-hero-container">
+          <div className="tempestas-hero-title-wrapper">
+            <p className="tempestas-hero--subtitle">
+              Become a TCu29 Token Holder
+            </p>
+            <h1 className="tempestas-hero--title">
+              Purchase TCu29
+              <br />
+              Tokens Now
+            </h1>
+            <p className="tempestas-hero--content">
+              Buy TCu29 tokens, each backed by 1 pound of physical copper.
+              <br />
+              RWA copper backed blockchain tokens suitable for every portfolio.
+            </p>
+            <DialogBuyTcu29
               btn={
-                <ButtonPrimary
-                  sx={{
-                    backgroundColor: '#06a69e',
-                    borderRadius: '1em',
-                    border: 'solid 1px #ffffff',
-                    color: '#ffffff',
-                    display: 'inline-block',
-                    fontSize: '1em',
-                    width: '8em',
-                    padding: '0.4em 0.25em',
-                    lineHeight: '1.2em',
-                    margin: 0,
-                    marginRight: '1em',
-                    '&:hover': {
-                      backgroundColor: '#080830',
-                    },
-                  }}
-                >
-                  SET PRICE
-                </ButtonPrimary>
+                <button className="teritary-btn">Purchase Tokens Today</button>
               }
             />
-          </>
-        )}
-        <br />
-      </Box>
+          </div>
+        </div>
+      </div>
+
+      <div className="tempestas-valueticker">
+        <div className="tempestas-valueticker-container">
+          <div className="tempestas-valueticker--title">
+            <h4>
+              <i className="fa-solid fa-chart-simple"></i> Current Value
+            </h4>
+          </div>
+          <div className="tempestas-valueticker--text">
+            <p>
+              <span className="strong-text">TCu29 Price:</span>{' '}
+              {priceTcu29?.eq(1)
+                ? 'LOADING'
+                : '$' + bnToCompact(priceTcu29, 3, 5)}
+            </p>
+            <p>
+              <span className="strong-text">Purchasable:</span>{' '}
+              {priceTcu29?.eq(1)
+                ? 'LOADING'
+                : bnToCompact(tokenBalTcu29Sale, 18, 5) +
+                  ' ($' +
+                  bnToCompact(
+                    tokenBalTcu29Sale.mul(priceTcu29).div(1000),
+                    18,
+                    5
+                  ) +
+                  ')'}
+            </p>
+            <p>
+              <span className="strong-text">Your TCu29:</span>{' '}
+              {priceTcu29?.eq(1)
+                ? 'LOADING'
+                : bnToCompact(tokenBalTcu29, 18, 5) +
+                  ' ($' +
+                  bnToCompact(tokenBalTcu29.mul(priceTcu29).div(1000), 18, 5) +
+                  ')'}
+            </p>
+          </div>
+        </div>
+      </div>
       <FooterArea />
     </>
   );

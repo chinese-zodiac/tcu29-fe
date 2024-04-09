@@ -8,19 +8,24 @@ export function bnToFixed(bn, tokenDecimals, fixedDecimals) {
 }
 
 export function bnToCompact(bn, tokenDecimals, significantDigits) {
-  if (!bn) return (0).toFixed(significantDigits);
-  let x = Number(formatUnits(bn, tokenDecimals));
-  if (x < 1) {
-    //Truncate extra digits when x is fractional
-    let exp = 10 ** (significantDigits - 1);
-    return (Math.floor(x * exp) / exp).toFixed(significantDigits - 1);
-  } else {
-    //Otherwise, use NumberFormat and display in compact format
-    return Intl.NumberFormat('en-US', {
-      notation: 'compact',
-      minimumSignificantDigits: significantDigits,
-      maximumSignificantDigits: significantDigits,
-      roundingMode: 'trunc',
-    }).format(x);
+  try {
+    if (!bn) return (0).toFixed(significantDigits);
+    let x = Number(formatUnits(bn, tokenDecimals));
+    if (x < 1) {
+      //Truncate extra digits when x is fractional
+      let exp = 10 ** (significantDigits - 1);
+      return (Math.floor(x * exp) / exp).toFixed(significantDigits - 1);
+    } else {
+      //Otherwise, use NumberFormat and display in compact format
+      return Intl.NumberFormat('en-US', {
+        notation: 'compact',
+        minimumSignificantDigits: significantDigits,
+        maximumSignificantDigits: significantDigits,
+        roundingMode: 'trunc',
+      }).format(x);
+    }
+  } catch (e) {
+    console.log(e);
+    return (0).toFixed(significantDigits);
   }
 }

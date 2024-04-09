@@ -1,4 +1,4 @@
-import { Button, DialogContent } from '@mui/material';
+import { DialogContent } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import * as React from 'react';
 
@@ -29,25 +29,9 @@ export default function DialogInfo({ btn, children, sx }) {
           }}
         >
           {children}
-          <Button
-            onClick={handleClose}
-            variant="text"
-            autoFocus
-            sx={{
-              backgroundColor: '#9E5635',
-              color: '#ffffff',
-              marginTop: '1em',
-              marginBottom: '2em',
-              fontSize: '1.25em',
-              paddingLeft: '1.5em',
-              paddingRight: '1.5em',
-              '&:hover': {
-                backgroundColor: '#9E5635',
-              },
-            }}
-          >
+          <button onClick={handleClose} className="primary-btn">
             SEE YA LATER!
-          </Button>
+          </button>
         </DialogContent>
       </Dialog>
     </>

@@ -1,10 +1,4 @@
-import {
-  Button,
-  DialogContent,
-  Slider,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Slider, TextField, Typography } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import { Box } from '@mui/system';
 import { BigNumber, ethers } from 'ethers';
@@ -22,17 +16,14 @@ import {
 import { bnToCompact } from '../../utils/bnToFixed';
 import EtherTextField from '../elements/EtherTextField';
 import DialogTransaction from '../styled/DialogTransaction';
-import ButtonPrimary from '../styled/ButtonPrimary';
 
-export default function DialogBuyTcu29({ btn, sx }) {
+export default function DialogBuyTcu29({ btn }) {
   const { address, isConnecting, isDisconnected } = useAccount();
 
   const [open, setOpen] = useState(false);
   const [inputWad, setInputWad] = useState(parseEther('0'));
 
   const [isCzusd, setIsCzusd] = useState(false);
-
-  console.log(isCzusd);
 
   const {
     data: dataPrice,
@@ -152,380 +143,245 @@ export default function DialogBuyTcu29({ btn, sx }) {
       {cloneElement(btn, {
         onClick: handleClickOpen,
       })}
-      <Dialog onClose={handleClose} open={open} sx={sx}>
-        <DialogContent
-          sx={{
-            padding: '1em',
-            background: 'white',
-            border: 'solid 4px #06a69e',
-            borderRadius: '10px',
-            color: 'black',
-          }}
-        >
-          <Button
-            onClick={() => {
-              setIsCzusd(false);
-              setInputWad(BigNumber.from(0));
-            }}
-            sx={{
-              backgroundColor: '#06a69e',
-              borderRadius: '1em',
-              border: 'solid 1px #ffffff',
-              color: '#ffffff',
-              display: 'inline-block',
-              fontSize: '1em',
-              width: '5em',
-              padding: '0.3em 0em',
-              lineHeight: '1.2em',
-              margin: 0,
-              marginRight: '1em',
-              '&:hover': {
-                backgroundColor: '#080830',
-              },
-            }}
-          >
-            USDT
-            <Box
-              as="img"
-              src="./images/tokens/usdt.svg"
-              sx={{
-                width: '1em',
-                height: '1em',
-                marginLeft: '0.3em',
-                position: 'relative',
-                top: '0.15em',
+      <Dialog onClose={handleClose} open={open}>
+        <div className="tempestas-contentblock--modal">
+          <div className="tempestas-contentblock--flex evenly">
+            <button
+              onClick={() => {
+                setIsCzusd(false);
+                setInputWad(BigNumber.from(0));
               }}
-            />
-          </Button>
-          <Button
-            onClick={() => {
-              setIsCzusd(true);
-              setInputWad(BigNumber.from(0));
-            }}
-            sx={{
-              backgroundColor: '#06a69e',
-              borderRadius: '1em',
-              border: 'solid 1px #ffffff',
-              color: '#ffffff',
-              display: 'inline-block',
-              fontSize: '1em',
-              width: '5em',
-              padding: '0.3em 0em',
-              lineHeight: '1.2em',
-              margin: 0,
-              marginRight: '1em',
-              '&:hover': {
-                backgroundColor: '#080830',
-              },
-            }}
-          >
-            CZUSD
-            <Box
-              as="img"
-              src="./images/tokens/czusd.svg"
-              sx={{
-                width: '1em',
-                height: '1em',
-                marginLeft: '0.3em',
-                position: 'relative',
-                top: '0.15em',
-              }}
-            />
-          </Button>
-          <Box
-            sx={{
-              position: 'relative',
-              border: 'solid 3px #06a69e',
-              borderRadius: '8px 8px 0px 0px',
-              textAlign: 'right',
-              paddingBottom: '0.5em',
-              maxWidth: '17em',
-            }}
-          >
-            <EtherTextField
-              decimals={18}
-              onChange={setInputWad}
-              value={inputWad?.toString()}
-              placeholder="0.0"
-              autofocus
-              fullWidth
-              renderInput={(props) => (
-                <TextField
-                  variant="standard"
-                  sx={{
-                    padding: '0.25em',
-                    width: '90%',
-                    '& .MuiInputBase-input': {
-                      fontSize: '1.5em',
-                      color: 'black',
-                      textAlign: 'right',
-                      width: '80%',
-                      display: 'inline-block',
-                    },
-                  }}
-                  {...props}
-                />
-              )}
-            />
-            <Box
-              as="img"
-              src={'./images/tokens/' + (isCzusd ? 'czusd.svg' : 'usdt.svg')}
-              sx={{
-                position: 'absolute',
-                width: '2.5em',
-                height: ' 2.5em',
-                right: '0.3em',
-                top: '0.3em',
-              }}
-            />
-            <Typography sx={{ display: 'inline-block' }}>
-              {isCzusd ? 'CZUSD' : 'USDT'} BALANCE:{' '}
-              {bnToCompact(isCzusd ? tokenBalCzusd : tokenBalUsdt, 18, 5)}
-            </Typography>
-            <Button
-              onClick={() =>
-                isCzusd ? setInputWad(tokenBalCzusd) : setInputWad(tokenBalUsdt)
-              }
-              variant="text"
-              sx={{
-                minWidth: '0',
-                width: '3em',
-                fontSize: '0.8em',
-                marginLeft: '0.5em',
-                marginRight: '1em',
-                padding: '0.25em 0em 0.1em 0em',
-                lineHeight: '1em',
-                color: 'white',
-                backgroundColor: '#06a69e',
-                position: 'relative',
-                top: '-0.15em',
-                display: 'inline-block',
-                paddingTop: '0.3em',
-                '&:hover': {
-                  backgroundColor: '#080830',
-                },
-              }}
+              className="primary-btn"
             >
-              MAX
-            </Button>
-          </Box>
-          <Box
-            sx={{
-              position: 'relative',
-              border: 'solid 3px #06a69e',
-              borderTop: '0px',
-              borderRadius: '0px 0px 8px 8px',
-              textAlign: 'right',
-              paddingTop: '0.5em',
-              paddingRight: '1em',
-            }}
-          >
-            <Typography
+              USDT
+              <Box
+                as="img"
+                src="./images/tokens/usdt.svg"
+                sx={{
+                  width: '1em',
+                  height: '1em',
+                }}
+              />
+            </button>
+            <button
+              onClick={() => {
+                setIsCzusd(true);
+                setInputWad(BigNumber.from(0));
+              }}
+              className="primary-btn"
+            >
+              CZUSD
+              <Box
+                as="img"
+                src="./images/tokens/czusd.svg"
+                sx={{
+                  width: '1em',
+                  height: '1em',
+                }}
+              />
+            </button>
+          </div>
+          <div className="tempestas-contentblock--flex top">
+            <Box
               sx={{
-                display: 'block',
-                width: '100%',
-                fontSize: '1.5em',
+                position: 'relative',
                 textAlign: 'right',
-                position: 'relative',
-                right: '1.5em',
+                paddingBottom: '0.5em',
+                width: '50%',
               }}
             >
-              {bnToCompact(inputWad.mul(1000).div(priceTcu29), 18, 5)}
-            </Typography>
-            <Typography
-              sx={{
-                display: 'block',
-                width: '100%',
-                fontSize: '1em',
-                textAlign: 'right',
-              }}
-            >
-              TCU29 TO PURCHASE{' '}
-            </Typography>
-            <Box
-              as="img"
-              src="./images/tokens/tcu29.png"
-              sx={{
-                position: 'absolute',
-                width: '2.5em',
-                height: ' 2.5em',
-                right: '0.3em',
-                top: '0.3em',
-              }}
-            />
-            <Box
-              sx={{
-                position: 'absolute',
-                color: '#06a69e',
-                right: '4.5em',
-                top: '-1em',
-                textAlign: 'center',
-                padding: '0.25em',
-                lineHeight: '1em',
-                backgroundColor: 'white',
-                borderRadius: '2em',
-                border: 'solid 2px #06a69e',
-              }}
-            >
-              ▼
+              <EtherTextField
+                decimals={18}
+                onChange={setInputWad}
+                value={inputWad?.toString()}
+                placeholder="0.0"
+                autofocus
+                fullWidth
+                renderInput={(props) => (
+                  <TextField
+                    variant="standard"
+                    sx={{
+                      padding: '0.25em',
+                      width: '90%',
+                      '& .MuiInputBase-input': {
+                        fontSize: '1.5em',
+                        color: 'black',
+                        textAlign: 'right',
+                        width: '80%',
+                        display: 'inline-block',
+                      },
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Box
+                as="img"
+                src={'./images/tokens/' + (isCzusd ? 'czusd.svg' : 'usdt.svg')}
+                sx={{
+                  position: 'absolute',
+                  width: '2.5em',
+                  height: ' 2.5em',
+                  right: '0.3em',
+                  top: '0.3em',
+                }}
+              />
+              <Typography sx={{ display: 'inline-block' }}>
+                {isCzusd ? 'CZUSD' : 'USDT'} BALANCE:{' '}
+                {bnToCompact(isCzusd ? tokenBalCzusd : tokenBalUsdt, 18, 5)}
+              </Typography>
+              <button
+                onClick={() =>
+                  isCzusd
+                    ? setInputWad(tokenBalCzusd)
+                    : setInputWad(tokenBalUsdt)
+                }
+                className="secondary-btn xs-btn"
+              >
+                MAX
+              </button>
             </Box>
-          </Box>
-          <Slider
-            valueLabelDisplay="auto"
-            valueLabelFormat={(val) => val + '%'}
-            onChange={(e, newValue) => {
-              setInputWad(
-                (isCzusd ? tokenBalCzusd : tokenBalUsdt).mul(newValue).div(100)
-              );
-            }}
-            sx={{
-              color: '#06a69e',
-            }}
-          />
-          <br />
-          <Button
-            onClick={handleClose}
-            variant="text"
-            sx={{
-              backgroundColor: '#06a69e',
-              borderRadius: '1em',
-              border: 'solid 1px #ffffff',
-              color: '#ffffff',
-              display: 'inline-block',
-              fontSize: '0.75em',
-              width: '8em',
-              padding: '0.4em 0.25em',
-              lineHeight: '1.2em',
-              margin: 0,
-              marginRight: '1em',
-              marginTop: '0.66em',
-              '&:hover': {
-                backgroundColor: '#080830',
-              },
-            }}
-          >
-            <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
-              EXIT
-            </Typography>
-          </Button>
-          {inputWad.gt(isCzusd ? allowanceCzusd : allowanceUsdt) ? (
-            <DialogTransaction
-              title={'APPROVE ' + (isCzusd ? 'CZUSD' : 'USDT')}
-              btn={
-                <Button
-                  onClick={() => {
-                    handleConfirmed();
-                  }}
-                  variant="text"
-                  sx={{
-                    backgroundColor: '#06a69e',
-                    borderRadius: '1em',
-                    border: 'solid 1px #ffffff',
-                    color: '#ffffff',
-                    display: 'inline-block',
-                    fontSize: '0.75em',
-                    width: '12em',
-                    padding: '0.4em 0.25em',
-                    lineHeight: '1.2em',
-                    margin: 0,
-                    marginLeft: '1em',
-                    marginTop: '0.66em',
-                    '&:hover': {
-                      backgroundColor: '#080830',
-                    },
-                  }}
-                >
-                  <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
-                    APPROVE
-                  </Typography>
-                </Button>
-              }
-              address={isCzusd ? ADDRESS_CZUSD : ADDRESS_USDT}
-              abi={IERC20Abi}
-              functionName="approve"
-              args={[
-                ADDRESS_TCU29SALE,
-                ethers.constants.MaxUint256?.toString(),
-              ]}
+            <Box
+              sx={{
+                position: 'relative',
+                textAlign: 'right',
+                paddingBottom: '0.5em',
+                width: '50%',
+              }}
             >
-              <Typography
+              <TextField
+                variant="standard"
+                disabled
                 sx={{
-                  fontSize: '1em',
-                  lineHeight: '1em',
-                  marginBottom: '0.5em',
-                  color: '#06a69e',
-                }}
-              >
-                TO
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: '2em',
-                  lineHeight: '1em',
-                  marginBottom: '0.75em',
-                }}
-              >
-                BUY TCU29
-              </Typography>
-              <Typography sx={{ fontSize: '1.25em', lineHeight: '1em' }}>
-                Send an Approve transaction to your wallet that will allow you
-                to buy TCu29 that are immediately transferred to your Wallet.
-                For Metamask, its recommended to use the default approve. That
-                way, you only have to do this once!
-              </Typography>
-            </DialogTransaction>
-          ) : (
-            <DialogTransaction
-              title="Purchase TCu29"
-              btn={
-                <ButtonPrimary
-                  onClick={() => {
-                    handleConfirmed();
-                  }}
-                  variant="text"
-                  sx={{
-                    backgroundColor: '#06a69e',
-                    borderRadius: '1em',
-                    border: 'solid 1px #ffffff',
-                    color: '#ffffff',
+                  padding: '0.25em',
+                  width: '90%',
+                  '& .MuiInputBase-input': {
+                    fontSize: '1.5em',
+                    color: 'black',
+                    textAlign: 'right',
+                    width: '80%',
                     display: 'inline-block',
-                    fontSize: '0.75em',
-                    width: '12em',
-                    padding: '0.4em 0.25em',
-                    lineHeight: '1.2em',
-                    margin: 0,
-                    marginLeft: '1em',
-                    marginTop: '0.66em',
-                    '&:hover': {
-                      backgroundColor: '#080830',
-                    },
-                  }}
-                >
-                  <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
-                    BUY
-                  </Typography>
-                </ButtonPrimary>
-              }
-              address={ADDRESS_TCU29SALE}
-              abi={Tcu29SaleAbi}
-              functionName={isCzusd ? 'buyTCu29Czusd' : 'buyTCu29Usdt'}
-              args={[inputWad?.toString(), address]}
-            >
-              <Typography sx={{ fontSize: '1.25em', lineHeight: '1em' }}>
-                <br />
-                AMOUNTS:
-                <br />-{bnToCompact(inputWad, 18, 5)}{' '}
-                {isCzusd ? 'CZUSD' : 'USDT'}
-                <br />+{bnToCompact(
-                  inputWad.mul(1000).div(priceTcu29),
+                  },
+                }}
+                value={bnToCompact(
+                  inputWad ? inputWad.mul(1000).div(priceTcu29) : 0,
                   18,
                   5
-                )}{' '}
-                TCU29
+                )}
+              />
+              <Box
+                as="img"
+                src="./images/tokens/tcu29.png"
+                sx={{
+                  position: 'absolute',
+                  width: '2.5em',
+                  height: ' 2.5em',
+                  right: '0.3em',
+                  top: '0.3em',
+                }}
+              />
+              <Typography sx={{ display: 'inline-block' }}>
+                TCU29 TO PURCHASE
               </Typography>
-            </DialogTransaction>
-          )}
-        </DialogContent>
+            </Box>
+          </div>
+          <div className="tempestas-contentblock--flex">
+            <Slider
+              valueLabelDisplay="auto"
+              valueLabelFormat={(val) => val + '%'}
+              onChange={(e, newValue) => {
+                setInputWad(
+                  (isCzusd ? tokenBalCzusd : tokenBalUsdt)
+                    .mul(newValue)
+                    .div(100)
+                );
+              }}
+              sx={{
+                color: '#06a69e',
+              }}
+            />
+          </div>
+          <div className="tempestas-contentblock--flex end">
+            <button onClick={handleClose} className="secondary-btn">
+              EXIT
+            </button>
+            {inputWad.gt(isCzusd ? allowanceCzusd : allowanceUsdt) ? (
+              <DialogTransaction
+                title={'APPROVE ' + (isCzusd ? 'CZUSD' : 'USDT')}
+                btn={
+                  <button
+                    onClick={() => {
+                      handleConfirmed();
+                    }}
+                    className="primary-btn"
+                  >
+                    APPROVE
+                  </button>
+                }
+                address={isCzusd ? ADDRESS_CZUSD : ADDRESS_USDT}
+                abi={IERC20Abi}
+                functionName="approve"
+                args={[
+                  ADDRESS_TCU29SALE,
+                  ethers.constants.MaxUint256?.toString(),
+                ]}
+              >
+                <Typography
+                  sx={{
+                    fontSize: '1em',
+                    lineHeight: '1em',
+                    marginBottom: '0.5em',
+                    color: '#06a69e',
+                  }}
+                >
+                  TO
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: '2em',
+                    lineHeight: '1em',
+                    marginBottom: '0.75em',
+                  }}
+                >
+                  BUY TCU29
+                </Typography>
+                <Typography sx={{ fontSize: '1em', lineHeight: '1em' }}>
+                  Send an Approve transaction to your wallet that will allow you
+                  to buy TCu29 that are immediately transferred to your Wallet.
+                  For Metamask, its recommended to use the default approve. That
+                  way, you only have to do this once!
+                </Typography>
+              </DialogTransaction>
+            ) : (
+              <DialogTransaction
+                title="Purchase TCu29"
+                btn={
+                  <button
+                    onClick={() => {
+                      handleConfirmed();
+                    }}
+                    className="primary-btn"
+                  >
+                    BUY
+                  </button>
+                }
+                address={ADDRESS_TCU29SALE}
+                abi={Tcu29SaleAbi}
+                functionName={isCzusd ? 'buyTCu29Czusd' : 'buyTCu29Usdt'}
+                args={[inputWad?.toString(), address]}
+              >
+                <Typography sx={{ fontSize: '1em', lineHeight: '1em' }}>
+                  <br />
+                  AMOUNTS:
+                  <br />-{bnToCompact(inputWad, 18, 5)}{' '}
+                  {isCzusd ? 'CZUSD' : 'USDT'}
+                  <br />+
+                  {bnToCompact(inputWad.mul(1000).div(priceTcu29), 18, 5)} TCU29
+                </Typography>
+              </DialogTransaction>
+            )}
+          </div>
+        </div>
       </Dialog>
     </>
   );

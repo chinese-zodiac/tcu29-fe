@@ -1,6 +1,7 @@
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react';
 import { bsc } from 'viem/chains';
 import { WagmiConfig } from 'wagmi';
+import MainLayout from './components/layouts/MainLayout';
 
 //WAGMI + WALLETCONNECT
 if (!import.meta.env.VITE_WALLETCONNECT_CLOUD_ID) {
@@ -22,7 +23,11 @@ const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 createWeb3Modal({ wagmiConfig, projectId, chains });
 
 function App({ children }) {
-  return <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>;
+  return (
+    <WagmiConfig config={wagmiConfig}>
+      <MainLayout>{children}</MainLayout>
+    </WagmiConfig>
+  );
 }
 
 export default App;

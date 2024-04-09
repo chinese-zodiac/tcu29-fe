@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import DialogTransaction from '../styled/DialogTransaction';
 import Tcu29SaleAbi from '../../abi/Tcu29Sale.json';
 import { ADDRESS_TCU29SALE } from '../../constants/addresses';
@@ -11,30 +11,9 @@ export default function DialogPause() {
         abi={Tcu29SaleAbi}
         functionName="managerPause"
         title="PAUSE TCU29 SALE DAPP"
-        btn={
-          <Button
-            sx={{
-              backgroundColor: '#06a69e',
-              borderRadius: '1em',
-              border: 'solid 1px #ffffff',
-              color: '#ffffff',
-              display: 'inline-block',
-              fontSize: '1em',
-              width: '8em',
-              padding: '0.4em 0.25em',
-              lineHeight: '1.2em',
-              margin: 0,
-              marginRight: '1em',
-              '&:hover': {
-                backgroundColor: '#080830',
-              },
-            }}
-          >
-            PAUSE
-          </Button>
-        }
+        btn={<button className="primary-btn">PAUSE</button>}
       >
-        <Typography sx={{ fontSize: '1.25em', lineHeight: '1.25em' }}>
+        <Typography sx={{ fontSize: '1em', lineHeight: '1.25em' }}>
           Pauses the TCU29 Sale Dapp, preventing anyone from purchasing TCu29.
         </Typography>
       </DialogTransaction>

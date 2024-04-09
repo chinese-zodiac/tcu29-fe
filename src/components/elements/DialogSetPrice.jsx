@@ -1,4 +1,4 @@
-import { Button, DialogContent, TextField, Typography } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import { Box } from '@mui/system';
 import { BigNumber } from 'ethers';
@@ -9,7 +9,6 @@ import { ADDRESS_TCU29SALE } from '../../constants/addresses';
 import { bnToCompact } from '../../utils/bnToFixed';
 import EtherTextField from '../elements/EtherTextField';
 import DialogTransaction from '../styled/DialogTransaction';
-import ButtonPrimary from '../styled/ButtonPrimary';
 
 export default function DialogSetPrice({ btn, sx }) {
   const { address, isConnecting, isDisconnected } = useAccount();
@@ -48,122 +47,73 @@ export default function DialogSetPrice({ btn, sx }) {
         onClick: handleClickOpen,
       })}
       <Dialog onClose={handleClose} open={open} sx={sx}>
-        <DialogContent
-          sx={{
-            padding: '1em',
-            background: 'white',
-            border: 'solid 4px #06a69e',
-            borderRadius: '10px',
-            color: 'black',
-          }}
-        >
-          <Box
-            sx={{
-              position: 'relative',
-              border: 'solid 3px #06a69e',
-              borderRadius: '8px 8px 0px 0px',
-              textAlign: 'right',
-              paddingBottom: '0.5em',
-              maxWidth: '17em',
-            }}
-          >
-            <EtherTextField
-              decimals={3}
-              onChange={setInputWad}
-              value={inputWad?.toString()}
-              placeholder="0.0"
-              autofocus
-              fullWidth
-              renderInput={(props) => (
-                <TextField
-                  variant="standard"
-                  sx={{
-                    padding: '0.25em',
-                    width: '90%',
-                    '& .MuiInputBase-input': {
-                      fontSize: '1.5em',
-                      color: 'black',
-                      textAlign: 'right',
-                      width: '80%',
-                      display: 'inline-block',
-                    },
+        <div className="tempestas-contentblock--modal">
+          <div className="tempestas-contentblock--flex evenly">
+            <Box
+              sx={{
+                position: 'relative',
+                textAlign: 'right',
+                paddingBottom: '0.5em',
+                width: '100%',
+              }}
+            >
+              <EtherTextField
+                decimals={3}
+                onChange={setInputWad}
+                value={inputWad?.toString()}
+                placeholder="0.0"
+                autofocus
+                fullWidth
+                renderInput={(props) => (
+                  <TextField
+                    variant="standard"
+                    sx={{
+                      padding: '0.25em',
+                      width: '90%',
+                      '& .MuiInputBase-input': {
+                        fontSize: '1.5em',
+                        color: 'black',
+                        textAlign: 'right',
+                        width: '100%',
+                        display: 'inline-block',
+                      },
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+            </Box>
+          </div>
+          <div className="tempestas-contentblock--flex end">
+            <button onClick={handleClose} className="secondary-btn">
+              <Typography sx={{ lineHeight: '1em' }}>EXIT</Typography>
+            </button>
+            <DialogTransaction
+              title="Purchase TCu29"
+              btn={
+                <button
+                  onClick={() => {
+                    handleConfirmed();
                   }}
-                  {...props}
-                />
-              )}
-            />
-          </Box>
-          <br />
-          <Button
-            onClick={handleClose}
-            variant="text"
-            sx={{
-              backgroundColor: '#06a69e',
-              borderRadius: '1em',
-              border: 'solid 1px #ffffff',
-              color: '#ffffff',
-              display: 'inline-block',
-              fontSize: '0.75em',
-              width: '8em',
-              padding: '0.4em 0.25em',
-              lineHeight: '1.2em',
-              margin: 0,
-              marginRight: '1em',
-              marginTop: '0.66em',
-              '&:hover': {
-                backgroundColor: '#080830',
-              },
-            }}
-          >
-            <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
-              EXIT
-            </Typography>
-          </Button>
-
-          <DialogTransaction
-            title="Purchase TCu29"
-            btn={
-              <ButtonPrimary
-                onClick={() => {
-                  handleConfirmed();
-                }}
-                variant="text"
-                sx={{
-                  backgroundColor: '#06a69e',
-                  borderRadius: '1em',
-                  border: 'solid 1px #ffffff',
-                  color: '#ffffff',
-                  display: 'inline-block',
-                  fontSize: '0.75em',
-                  width: '12em',
-                  padding: '0.4em 0.25em',
-                  lineHeight: '1.2em',
-                  margin: 0,
-                  marginLeft: '1em',
-                  marginTop: '0.66em',
-                  '&:hover': {
-                    backgroundColor: '#080830',
-                  },
-                }}
-              >
-                <Typography sx={{ fontSize: '2em', lineHeight: '1em' }}>
-                  SET PRICE
-                </Typography>
-              </ButtonPrimary>
-            }
-            address={ADDRESS_TCU29SALE}
-            abi={Tcu29SaleAbi}
-            functionName="managerSetPrice"
-            args={[inputWad?.toString()]}
-          >
-            <Typography sx={{ fontSize: '1.25em', lineHeight: '1em' }}>
-              <br />
-              Old Price: ${bnToCompact(priceTcu29, 3, 5)}
-              <br />
-              New Price: ${bnToCompact(inputWad, 3, 5)}
-            </Typography>
-          </DialogTransaction>
-        </DialogContent>
+                  className="primary-btn"
+                >
+                  <Typography sx={{ lineHeight: '1em' }}>SET PRICE</Typography>
+                </button>
+              }
+              address={ADDRESS_TCU29SALE}
+              abi={Tcu29SaleAbi}
+              functionName="managerSetPrice"
+              args={[inputWad?.toString()]}
+            >
+              <Typography sx={{ fontSize: '1em', lineHeight: '1em' }}>
+                <br />
+                Old Price: ${bnToCompact(priceTcu29, 3, 5)}
+                <br />
+                New Price: ${bnToCompact(inputWad, 3, 5)}
+              </Typography>
+            </DialogTransaction>
+          </div>
+        </div>
       </Dialog>
     </>
   );
