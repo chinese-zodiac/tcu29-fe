@@ -32,14 +32,10 @@ export default function Footer({ children }) {
           <h4 className="footer-titles">Company</h4>
           <ul className="footer-stacked-links">
             <li className="ftr-links">
-              <a href="#about-tcu29" target="_blank">
-                About TCu29
-              </a>
+              <a href="https://www.tcu29.io/#about-tcu29">About TCu29</a>
             </li>
             <li className="ftr-links">
-              <a href="#why-copper" target="_blank">
-                Why Copper?
-              </a>
+              <a href="https://www.tcu29.io/#why-copper">Why Copper?</a>
             </li>
             <li className="ftr-links">
               <a href="https://www.tcu29.io" target="_blank">
@@ -54,7 +50,10 @@ export default function Footer({ children }) {
           <h4 className="footer-titles">Links</h4>
           <ul className="footer-stacked-links">
             <li className="ftr-links">
-              <a href="#whitepaper" target="_blank">
+              <a
+                href="https://www.tcu29.io/wp-content/uploads/2024/04/TCU29-Whitepaper-v5.6.pdf"
+                target="_blank"
+              >
                 Whitepaper
               </a>
             </li>
@@ -65,22 +64,12 @@ export default function Footer({ children }) {
           <h4 className="footer-titles">Follow Us</h4>
           <ul className="footer-row-links">
             <li className="ftr-links-social">
-              <a href="#" target="_blank">
+              <a href="https://www.instagram.com/tcu29token/" target="_blank">
                 <i className="fa-brands fa-instagram"></i>
               </a>
             </li>
             <li className="ftr-links-social">
-              <a href="#" target="_blank">
-                <i className="fa-brands fa-facebook"></i>
-              </a>
-            </li>
-            <li className="ftr-links-social">
-              <a href="#" target="_blank">
-                <i className="fa-brands fa-linkedin"></i>
-              </a>
-            </li>
-            <li className="ftr-links-social">
-              <a href="#" target="_blank">
+              <a href="https://twitter.com/tcu29token" target="_blank">
                 <i className="fa-brands fa-x-twitter"></i>
               </a>
             </li>
